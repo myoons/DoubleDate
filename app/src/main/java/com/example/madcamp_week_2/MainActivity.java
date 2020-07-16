@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.example.madcamp_week_2.UI.Tab.VPAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {

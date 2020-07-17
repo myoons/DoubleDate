@@ -9,6 +9,8 @@ import com.example.madcamp_week_2.UI.Address.Fragment_Address;
 import com.example.madcamp_week_2.UI.Gallery.Fragment_Gallery;
 import com.example.madcamp_week_2.UI.Main.Fragment_Main;
 import com.example.madcamp_week_2.UI.Message.Fragment_Message;
+import com.example.madcamp_week_2.UI.Myinfo.Fragment_Myinfo;
+import com.example.madcamp_week_2.UI.Store.Fragment_Store;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,8 @@ public class VPAdapter extends FragmentPagerAdapter {
         items.add(new Fragment_Address());
         items.add(new Fragment_Gallery());
         items.add(new Fragment_Message());
+        items.add(new Fragment_Store());
+        items.add(new Fragment_Myinfo());
 
     }
 

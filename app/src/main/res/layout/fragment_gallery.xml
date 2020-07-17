@@ -23,7 +23,7 @@
             android:id="@+id/ImageCarouselView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
             app:disableAutoPlayOnUserInteraction="true"
             app:fillColor="#FFFFFFFF"
             app:pageColor="#00000000"
@@ -35,19 +35,18 @@
             android:id="@+id/GV_Images"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:numColumns="3"
+            android:layout_weight="2"
+            android:numColumns="4"
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp">
         </GridView>
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="vertical"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
@@ -55,18 +54,6 @@
         android:background="@color/white"
         android:elevation="3dp"
         android:layout_marginLeft="10dp">
-
-        <com.synnapps.carouselview.CarouselView
-            android:id="@+id/VideoCarouselView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            app:disableAutoPlayOnUserInteraction="true"
-            app:fillColor="#FFFFFFFF"
-            app:pageColor="#00000000"
-            app:radius="6dp"
-            app:strokeColor="#FF777777"
-            app:strokeWidth="1dp"/>
 
         <GridView
             android:id="@+id/GV_Videos"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rooms_list"
+    android:id="@+id/list_cafe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:hint="Type Name"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:layout_marginTop="5dp"
-        android:id="@+id/listView1"
+    <GridView
+        android:layout_margin="5dp"
+        android:id="@+id/gridview_entertains"
         android:layout_width="match_parent"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="2"
         android:layout_height="match_parent">
-    </ListView>
+    </GridView>
 
 </LinearLayout>

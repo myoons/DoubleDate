@@ -59,6 +59,5 @@ public class MainActivity extends AppCompatActivity {
         tablayout.getTabAt(4).setIcon(R.drawable.icon_4);
         tablayout.getTabAt(5).setIcon(R.drawable.icon_4);
 
-
     }
 }

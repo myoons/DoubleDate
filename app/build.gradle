@@ -35,12 +35,8 @@ dependencies {
 
     implementation 'com.synnapps:carouselview:0.0.9'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.synnapps:carouselview:0.0.9'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
 
-
-    implementation "com.google.android.material:material:1.1.0-alpha07"
-    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha01'
+    implementation group : 'cz.msebera.android', name : 'httpclient' , version : '4.4.1.2'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

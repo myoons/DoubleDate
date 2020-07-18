@@ -57,28 +57,28 @@
         android:fontFamily="@font/bm"
         android:background="@drawable/login_main"
         android:textSize="13dp"
-        android:textColor="@color/brown_green"
+        android:textColor="@color/brown_3"
         android:layout_marginLeft="248dp"/>
-
-    <EditText
-        android:background="@drawable/create_main"
-        android:id="@+id/Create_ID"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:fontFamily="@font/bm"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="7dp"
-        android:hint=" 비밀번호 입력"/>
-
 
     <EditText
         android:background="@drawable/create_main"
         android:id="@+id/Create_PW"
         android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:fontFamily="@font/bm"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="5dp"
+        android:hint=" 비밀번호 입력"/>
+
+
+    <EditText
+        android:background="@drawable/create_main"
+        android:id="@+id/Create_Confirm"
+        android:layout_width="match_parent"
         android:layout_marginHorizontal="40dp"
         android:layout_height="45dp"
         android:fontFamily="@font/bm"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:hint=" 비밀번호 확인"/>
 
     <CheckBox
@@ -100,7 +100,7 @@
         android:fontFamily="@font/bm"
         android:background="@drawable/login_main"
         android:textSize="18dp"
-        android:textColor="@color/brown_green"
+        android:textColor="@color/brown_3"
         android:layout_marginLeft="260dp"/>
 
 </LinearLayout>

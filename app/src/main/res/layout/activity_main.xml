@@ -50,7 +50,6 @@
         android:text="MYINFO" />
 
 
-
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

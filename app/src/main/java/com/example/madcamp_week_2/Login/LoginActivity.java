@@ -95,10 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /**
-                 계정 생성 코드 구현
-                 **/
+                Intent intent = new Intent(getApplicationContext(), CreateActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -37,16 +37,30 @@
         android:textColor="@color/brown_green"
         />
 
-    <EditText
-
-        android:background="@drawable/create_main"
-        android:id="@+id/Create_Email"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="40dp"
-        android:layout_height="45dp"
-        android:fontFamily="@font/bm"
+    <LinearLayout
         android:layout_marginTop="20dp"
-        android:hint=" 이메일(아이디) 입력"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/bm"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="닉네임"/>
+
+        <EditText
+            android:background="@drawable/create_main"
+            android:id="@+id/Create_Nickname"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_height="45dp"
+            android:fontFamily="@font/bm"
+            android:hint=" 이메일(아이디) 입력"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/same_check"

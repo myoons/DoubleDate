@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +24,10 @@ public class CreateActivity extends AppCompatActivity {
     Button btn_check;
     EditText ID,PW,Confirm_PW;
     String String_ID,String_PW;
+    ContentValues createcontents = new ContentValues();
+    CheckBox create_check;
+    Integer check;
+    String url,result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +38,45 @@ public class CreateActivity extends AppCompatActivity {
         PW = (EditText) findViewById(R.id.Create_PW);
         Confirm_PW = (EditText) findViewById(R.id.Create_Confirm);
 
+        create_check.setOnClickListener(new CheckBox.OnClickListener() {
+
+            @Override public void onClick(View v) {
+                if (((CheckBox)v).isChecked()) {
+                    // If checkbox is checked
+                    check = 1;
+                } else {
+                    // If checkbox is unchecked
+                    check = 0;
+                }
+            }
+        }) ;
+
         btn_check = findViewById(R.id.same_check);
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String_ID = ID.getText().toString();
-                
+
+                createcontents.put("email",String_ID);
+                url = "http://192.249.19.244:1480/sojin/duplicate";
+
+                CreateActivity.NetworkTask networkTask = new CreateActivity.NetworkTask(url, createcontents);
+                networkTask.execute();
+            }
+        });
+
+        btn_next = findViewById(R.id.create_next);
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (check.equals(1) && result.equals(1)) {
+                    Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                    startActivity(intent);
+                } else if (result.equals(0)) {
+                    Toast.makeText(getApplicationContext(), "Check Duplicate",Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
@@ -53,6 +91,7 @@ public class CreateActivity extends AppCompatActivity {
         public NetworkTask(String url, ContentValues values) {
             this.url = url;
             this.values = values;
+
         }
 
         @Override
@@ -73,7 +112,7 @@ public class CreateActivity extends AppCompatActivity {
                 System.out.println(s);
 
                 JSONObject jObject = new JSONObject(s);
-                String result = jObject.getString("result");
+                result = jObject.getString("result");
 
                 if (result.equals("0")) {
                     Toast.makeText(getApplicationContext(),"Same Email Exist",Toast.LENGTH_SHORT).show();

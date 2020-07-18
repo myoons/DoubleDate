@@ -30,13 +30,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String TAG = "TAG+MainActivity";
-
-    Socket sock = null;
-    BufferedReader br = null;
-    PrintWriter pw = null;
-    boolean endflag = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

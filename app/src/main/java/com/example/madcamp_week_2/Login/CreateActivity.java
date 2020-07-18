@@ -23,7 +23,7 @@ public class CreateActivity extends AppCompatActivity {
     Button btn_next;
     Button btn_check;
     EditText ID,PW,Confirm_PW;
-    String String_ID,String_PW;
+    String String_ID,String_PW, String_CPW;
     ContentValues createcontents = new ContentValues();
     CheckBox create_check;
     Integer check;
@@ -37,6 +37,8 @@ public class CreateActivity extends AppCompatActivity {
         ID = (EditText) findViewById(R.id.Create_Email);
         PW = (EditText) findViewById(R.id.Create_PW);
         Confirm_PW = (EditText) findViewById(R.id.Create_Confirm);
+
+        create_check = findViewById(R.id.create_check);
 
         create_check.setOnClickListener(new CheckBox.OnClickListener() {
 
@@ -71,13 +73,19 @@ public class CreateActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (check.equals(1) && result.equals(1)) {
+
+                    String_ID = ID.getText().toString();
+                    String_PW = PW.getText().toString();
+                    String_CPW = Confirm_PW.getText().toString();
+
                     Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+
                     startActivity(intent);
                 } else if (result.equals(0)) {
-                    Toast.makeText(getApplicationContext(), "Check Duplicate",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Verify Duplication",Toast.LENGTH_SHORT).show();
+                } else if (check.equals(0)) {
+                    Toast.makeText(getApplicationContext(), "Check Box",Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 

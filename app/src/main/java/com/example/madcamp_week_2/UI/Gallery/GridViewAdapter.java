@@ -16,10 +16,10 @@ public class GridViewAdapter extends BaseAdapter {
 
     Context context = null;
     // For Grid View
-    ArrayList<Bitmap> imageIDs = null;
+    ArrayList<ImageInfo> imageIDs = null;
 
 
-    public GridViewAdapter(Context context, ArrayList<Bitmap> imageIDs) {
+    public GridViewAdapter(Context context, ArrayList<ImageInfo> imageIDs) {
         this.context = context;
         this.imageIDs = imageIDs;
     }
@@ -50,13 +50,16 @@ public class GridViewAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         } else {
 
-            Bitmap bmp = imageIDs.get(position);
+            Bitmap bmp = imageIDs.get(position).getImage();
+            String title = imageIDs.get(position).getTitle();
+            String name = imageIDs.get(position).getName();
+
             bmp = Bitmap.createScaledBitmap(bmp, 320, 320, false);
 
             imageView = new ImageView(context);
             imageView.setAdjustViewBounds(true);
             imageView.setImageDrawable(new BitmapDrawable(context.getResources(),bmp));
-            ImageClickListener imageViewClickListener = new ImageClickListener(context, bmp);
+            ImageClickListener imageViewClickListener = new ImageClickListener(context, bmp, title, name);
             imageView.setOnClickListener(imageViewClickListener);
         }
         return imageView;

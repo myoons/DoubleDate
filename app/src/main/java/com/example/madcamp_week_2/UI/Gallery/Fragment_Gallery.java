@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
@@ -33,6 +34,9 @@ public class Fragment_Gallery extends Fragment {
 
     CarouselView localCarouselView;
     View view;
+
+    // List for GridView
+    ArrayList<ImageInfo> ImageInfoList;
 
     // List for Carousel
     int[] localImages = {R.drawable.jg,
@@ -88,18 +92,21 @@ public class Fragment_Gallery extends Fragment {
         // Inflate the layout for this fragment
 
         view = inflater.inflate(R.layout.fragment_gallery,container,false);
-        ArrayList<Bitmap> bitmapList = new ArrayList<>();
+        ImageInfoList = new ArrayList<>();
 
         for (int i=0; i<localImages.length; i++) {
+
             Drawable drawable = getActivity().getDrawable(localImages[i]);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             Bitmap bitmap = bitmapDrawable.getBitmap();
 
-            bitmapList.add(bitmap);
+            ImageInfo tempinfo = new ImageInfo(bitmap,Integer.toString(i),Integer.toString(i));
+
+            ImageInfoList.add(tempinfo);
         }
 
         GridView gridViewImages = (GridView) view.findViewById(R.id.GV_Images);
-        GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), bitmapList);
+        GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), ImageInfoList);
         gridViewImages.setAdapter(ImageGridAdapter);
 
         initView();
@@ -120,6 +127,10 @@ public class Fragment_Gallery extends Fragment {
                 View customView = getLayoutInflater().inflate(R.layout.carousel_view, null);
 
                 ImageView fruitImageView = (ImageView) customView.findViewById(R.id.carousel_image);
+                ImageInfo tempinfo = ImageInfoList.get(position);
+
+                ImageClickListener imageViewClickListener = new ImageClickListener(getContext(),tempinfo.getImage(), tempinfo.getTitle(), tempinfo.getName());
+                fruitImageView.setOnClickListener(imageViewClickListener);
 
                 fruitImageView.setImageResource(localImages[position]);
 

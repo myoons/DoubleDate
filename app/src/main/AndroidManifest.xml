@@ -22,6 +22,12 @@
             android:label="Selected Image">
         </activity>
 
+        <activity
+            android:name=".UI.Gallery.RatingActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:label="Rate Image">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

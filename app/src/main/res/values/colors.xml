@@ -6,5 +6,11 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="brown_1">#F7EAD7</color>
+    <color name="brown_2">#EED7A3</color>
+    <color name="brown_3">#C5A671</color>
+    <color name="blue_1">#D3E7EE</color>
+    <color name="blue_2">#ABD1DC</color>
+    <color name="blue_3">#7097A8</color>
 
 </resources>

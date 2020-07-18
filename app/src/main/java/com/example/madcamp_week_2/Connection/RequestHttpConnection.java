@@ -73,8 +73,6 @@ public class RequestHttpConnection {
                 page += line;
             }
 
-            System.out.println("page : " + page);
-
             return page;
 
         } catch (MalformedURLException e) {

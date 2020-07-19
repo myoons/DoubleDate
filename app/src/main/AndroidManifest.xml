@@ -40,6 +40,11 @@
         </activity>
 
         <activity
+            android:name=".Login.NextActivity"
+            android:label="Create Next">
+        </activity>
+
+        <activity
             android:name=".Login.FindActivity"
             android:label="Find Account">
         </activity>

@@ -41,7 +41,6 @@ public class CreateActivity extends AppCompatActivity {
         Confirm_PW = (EditText) findViewById(R.id.Create_Confirm);
 
         create_check = findViewById(R.id.create_check);
-
         create_check.setOnClickListener(new CheckBox.OnClickListener() {
 
             @Override public void onClick(View v) {
@@ -73,6 +72,9 @@ public class CreateActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // For Check
+                check = "1";
+                result = "1";
 
                 if (check.equals("1") && result.equals("1")) {
 
@@ -80,14 +82,21 @@ public class CreateActivity extends AppCompatActivity {
                     String_PW = PW.getText().toString();
                     String_CPW = Confirm_PW.getText().toString();
 
-                    Intent intent = new Intent(getApplicationContext(), NextActivity.class);
-                    startActivity(intent);
+                    if (String_PW.equals(String_CPW)) {
 
-                } else if (result.equals(0)) {
+                        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                        intent.putExtra("ID", String_ID);
+                        intent.putExtra("PW", String_PW);
 
-                    Toast.makeText(getApplicationContext(), "Verify Duplication",Toast.LENGTH_SHORT).show();
-                } else if (check.equals(0)) {
-                    Toast.makeText(getApplicationContext(), "Check Box",Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "비밀번호 확인", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else if (check.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "동의", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "아이디 중복 확인",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -126,9 +135,9 @@ public class CreateActivity extends AppCompatActivity {
                 result = jObject.getString("result");
 
                 if (result.equals("0")) {
-                    Toast.makeText(getApplicationContext(),"Same Email Exist",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"동일 아이디 존재",Toast.LENGTH_SHORT).show();
                 } else if (result.equals("1")) {
-                    Toast.makeText(getApplicationContext(),"Available Email",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"사용 가능한 아이디",Toast.LENGTH_SHORT).show();
                 }
             }catch (Exception e) {e.printStackTrace();}
         }

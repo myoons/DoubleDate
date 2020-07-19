@@ -9,4 +9,8 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="ScreenSlideTabText">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

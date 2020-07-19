@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image Title"
+        android:id="@+id/title"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:paddingRight="8dp"
+        android:id="@+id/user_name"
+        android:gravity="right"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20dp"/>
+
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_margin="3dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:elevation="3dp"
+        android:src="@drawable/ic_launcher_background" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="평가하기"
+        android:layout_marginRight="6dp"
+        android:id="@+id/rating_button"/>
+
+</LinearLayout>

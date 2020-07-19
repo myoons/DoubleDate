@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/login_gradation">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="회원가입"
+        android:fontFamily="@font/bm"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:background="@color/brown_3"
+        android:gravity="center"/>
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/bm"
+        android:textStyle="bold"
+        android:text="앱 설명~~~~~~~~~~~~~~~~~~~\n 2줄로~~~~~~~~~~~~"
+        android:textSize="17dp"
+        android:textColor="@color/brown_green"
+        />
+
+    <EditText
+
+        android:background="@drawable/create_main"
+        android:id="@+id/Create_Email"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/bm"
+        android:layout_marginTop="20dp"
+        android:hint=" 이메일(아이디) 입력"/>
+
+    <Button
+        android:id="@+id/same_check"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="3dp"
+        android:text="중복 확인"
+        android:fontFamily="@font/bm"
+        android:background="@drawable/login_main"
+        android:textSize="13dp"
+        android:textColor="@color/brown_3"
+        android:layout_marginLeft="248dp"/>
+
+    <EditText
+        android:background="@drawable/create_main"
+        android:id="@+id/Create_PW"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:fontFamily="@font/bm"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="5dp"
+        android:hint=" 비밀번호 입력"/>
+
+
+    <EditText
+        android:background="@drawable/create_main"
+        android:id="@+id/Create_Confirm"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/bm"
+        android:layout_marginTop="5dp"
+        android:hint=" 비밀번호 확인"/>
+
+    <CheckBox
+        android:id="@+id/create_check"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:text="서비스 이용약관, 개인정보 취급방침에 동의합니다" />
+
+    <Button
+        android:id="@+id/create_next"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:text="다음"
+        android:fontFamily="@font/bm"
+        android:background="@drawable/login_main"
+        android:textSize="18dp"
+        android:textColor="@color/brown_3"
+        android:layout_marginLeft="260dp"/>
+
+</LinearLayout>

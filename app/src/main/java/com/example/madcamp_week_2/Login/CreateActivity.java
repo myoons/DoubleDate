@@ -26,13 +26,15 @@ public class CreateActivity extends AppCompatActivity {
     String String_ID,String_PW, String_CPW;
     ContentValues createcontents = new ContentValues();
     CheckBox create_check;
-    Integer check;
-    String url,result;
+    String url,result,check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_activity);
+
+        check="0";
+        result="0";
 
         ID = (EditText) findViewById(R.id.Create_Email);
         PW = (EditText) findViewById(R.id.Create_PW);
@@ -45,10 +47,10 @@ public class CreateActivity extends AppCompatActivity {
             @Override public void onClick(View v) {
                 if (((CheckBox)v).isChecked()) {
                     // If checkbox is checked
-                    check = 1;
+                    check = "1";
                 } else {
                     // If checkbox is unchecked
-                    check = 0;
+                    check = "0";
                 }
             }
         }) ;
@@ -72,16 +74,17 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (check.equals(1) && result.equals(1)) {
+                if (check.equals("1") && result.equals("1")) {
 
                     String_ID = ID.getText().toString();
                     String_PW = PW.getText().toString();
                     String_CPW = Confirm_PW.getText().toString();
 
                     Intent intent = new Intent(getApplicationContext(), NextActivity.class);
-
                     startActivity(intent);
+
                 } else if (result.equals(0)) {
+
                     Toast.makeText(getApplicationContext(), "Verify Duplication",Toast.LENGTH_SHORT).show();
                 } else if (check.equals(0)) {
                     Toast.makeText(getApplicationContext(), "Check Box",Toast.LENGTH_SHORT).show();

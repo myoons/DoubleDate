@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     EditText ID,PW;
-    String String_ID,String_PW;
+    String String_ID,String_PW,result;
     String url;
     ContentValues logincontents = new ContentValues();
     Button btn_login;
@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         mContext = this;
-
         ID = (EditText) findViewById(R.id.ID);
         PW = (EditText) findViewById(R.id.PW);
 
@@ -100,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
 
@@ -117,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
 
-            String result;
             RequestHttpConnection requestHttpConnection = new RequestHttpConnection();
             result = requestHttpConnection.request(url, values);
 
@@ -137,7 +134,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (result.equals("0")) {
                     Toast.makeText(getApplicationContext(),"Login Failed : ID or PW may be wrong",Toast.LENGTH_SHORT).show();
                 } else if (result.equals("1")) {
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("ID",String_ID);
                     startActivity(intent);
                     finish();
                 }

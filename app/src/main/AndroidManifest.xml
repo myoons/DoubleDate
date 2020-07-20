@@ -76,9 +76,13 @@
         </activity>
 
         <activity
-            android:name=".UI.Address.HospitalActivity"
-            android:label="Find Account">
+            android:name=".UI.Myinfo.MyinfoImageActivity"
+            android:label="Click MyInfo image">
         </activity>
+
+        <activity
+            android:name=".UI.Address.HospitalActivity"
+            android:label="Find Account"/>
 
         <activity
             android:name=".UI.Address.AddressActivity"

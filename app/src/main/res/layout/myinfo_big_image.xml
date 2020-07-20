@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/brown_1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="두 눈이 구슬 같다"
+        android:fontFamily="@font/bm"
+        android:id="@+id/myinfo_title"
+        android:textColor="@color/brown_green"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:paddingRight="10dp"
+        android:id="@+id/myinfo_date"
+        android:gravity="right"
+        android:textColor="@color/brown_green"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bm"
+        android:text="2020/07/17"
+        android:textSize="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/myinfo_imageview"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/brown_1"
+        android:elevation="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/myinfo_dog" />
+
+    <TextView
+        android:id="@+id/myinfo_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/brown_green"
+        android:layout_gravity="right"
+        android:text="#소싯적 구슬치기 생각이 새록새록"
+        android:fontFamily="@font/bm"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/myinfo_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_gravity="right"
+        android:textColor="@color/brown_green"
+        android:text="4.23"
+        android:fontFamily="@font/bm"
+        android:textSize="20dp" />
+
+</LinearLayout>

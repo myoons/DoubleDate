@@ -40,8 +40,6 @@ public class RequestHttpConnection {
                         isAnd = true;
             }
 
-//            System.out.println("sbParams : " + sbParams);
-
         }
 
         try {

@@ -1,14 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Myinfo.Fragment_Myinfo">
+    android:background="@color/brown_1">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/myinfo_profile"
+        android:layout_width="129dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/myinfo_dog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myinfo_ID"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/brown_2"
+        android:fontFamily="@font/bm"
+        android:gravity="center"
+        android:textColor="@color/brown_green"
+        android:text="ID"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myinfo_nickname"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:background="@color/brown_2"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
+        android:gravity="center"
+        android:text="nickname"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/myinfo_profile"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_ID" />
+
+    <TextView
+        android:id="@+id/myinfo_number"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
+        android:background="@color/brown_2"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
+        android:gravity="center"
+        android:text="number"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_nickname" />
+
+    <ImageView
+        android:id="@+id/myinfo_gender_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="124dp"
+        android:background="@color/brown_2"
+        android:padding="11dp"
+        android:src="@drawable/gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toEndOf="@+id/myinfo_animals"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_score_image" />
+
+    <TextView
+        android:id="@+id/myinfo_gender"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/brown_2"
+        android:fontFamily="@font/bm"
+        android:gravity="center"
+        android:textColor="@color/brown_green"
+        android:text="gender"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/myinfo_gender_image"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_score" />
+
+    <ImageView
+        android:id="@+id/myinfo_animals_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/brown_2"
+        android:padding="12dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toStartOf="@+id/myinfo_animals"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_bone_image" />
+
+    <TextView
+        android:id="@+id/myinfo_bone"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:background="@color/brown_2"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
+        android:gravity="center"
+        android:text="bone"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/myinfo_bone_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/myinfo_bone_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:background="@color/brown_2"
+        android:padding="12dp"
+        android:src="@drawable/bone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myinfo_score"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:background="@color/brown_2"
+        android:textColor="@color/brown_green"
+        android:fontFamily="@font/bm"
+        android:gravity="center"
+        android:text="score"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/myinfo_score_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:background="@color/brown_2"
+        android:padding="10dp"
+        android:src="@drawable/score"
+        app:layout_constraintEnd_toStartOf="@+id/myinfo_score"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myinfo_animals"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/brown_2"
+        android:textColor="@color/brown_green"
+        android:fontFamily="@font/bm"
+        android:gravity="center"
+        android:text="animals"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_bone" />
+
+    <GridView
+        android:id="@+id/myinfo_gridview"
+        android:layout_width="293dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="320dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,54 +1,49 @@
-package com.example.madcamp_week_2.UI.Gallery;
+package com.example.madcamp_week_2.UI.Myinfo;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.madcamp_week_2.R;
 
-public class ImageActivity extends AppCompatActivity {
+import com.example.madcamp_week_2.R;
+import com.example.madcamp_week_2.UI.Gallery.RatingActivity;
+
+public class MyinfoImageActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simple_image);
+        setContentView(R.layout.myinfo_big_image);
 
         Intent receivedIntent = getIntent();
-        ImageView myImageView = (ImageView) findViewById(R.id.imageView);
-        TextView nameView = (TextView) findViewById(R.id.user_name);
-        TextView titleView = (TextView) findViewById(R.id.title);
+
+        ImageView myImageView = (ImageView) findViewById(R.id.myinfo_imageview);
+        TextView myinfo_date = (TextView) findViewById(R.id.myinfo_date);
+        TextView myinfo_title = (TextView) findViewById(R.id.myinfo_title);
+        TextView myinfo_tag = (TextView) findViewById(R.id.myinfo_tag);
+        TextView myinfo_score = (TextView) findViewById(R.id.myinfo_score);
 
         byte[] byteArray = receivedIntent.getByteArrayExtra("image");
         String title = receivedIntent.getStringExtra("title");
-        String name = receivedIntent.getStringExtra("name");
+        String tag = receivedIntent.getStringExtra("tag");
+        String date = receivedIntent.getStringExtra("date");
+        String score = receivedIntent.getStringExtra("score");
 
         Bitmap myBitmap = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
 
         myImageView.setImageDrawable(new BitmapDrawable(getResources(),myBitmap));
-        nameView.setText(name);
-        titleView.setText(title);
+        myinfo_date.setText(date);
+        myinfo_score.setText(score);
+        myinfo_tag.setText(tag);
+        myinfo_title.setText(title);
 
-        Button rating_Button = findViewById(R.id.rating_button);
-        rating_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),RatingActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

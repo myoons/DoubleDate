@@ -1,5 +1,6 @@
 package com.example.madcamp_week_2.UI.Myinfo;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.madcamp_week_2.MainActivity;
 import com.example.madcamp_week_2.R;
+import com.example.madcamp_week_2.UI.Gallery.GridViewAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,13 @@ import com.example.madcamp_week_2.R;
  * create an instance of this fragment.
  */
 public class Fragment_Myinfo extends Fragment {
+
+    ImageView profile;
+    TextView ID, nickname, number, gender, animals, bone, score;
+
+    Myinfo myinfo = ((MainActivity) MainActivity.context).myinfo;
+    ArrayList<Myinfo_image> img_arr = new ArrayList<>();
+    ArrayList<Bitmap> bmp_arr = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +76,29 @@ public class Fragment_Myinfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__myinfo, container, false);
+        View view = inflater.inflate(R.layout.fragment__myinfo, container, false);
+
+        ID = view.findViewById(R.id.myinfo_ID);
+        nickname = view.findViewById(R.id.myinfo_nickname);
+        number = view.findViewById(R.id.myinfo_number);
+        gender = view.findViewById(R.id.myinfo_gender);
+        animals = view.findViewById(R.id.myinfo_animals);
+        bone = view.findViewById(R.id.myinfo_bone);
+        score = view.findViewById(R.id.myinfo_score);
+
+        ID.setText(myinfo.getID());
+        nickname.setText(myinfo.getNickname());
+        number.setText(myinfo.getNumber());
+        gender.setText(myinfo.getGender());
+        animals.setText(myinfo.getAnimals());
+        bone.setText(myinfo.getBone());
+        score.setText(myinfo.getScore());
+
+        GridView gridViewImages = (GridView) view.findViewById(R.id.myinfo_gridview);
+        MyinfoGridViewAdapter ImageGridAdapter = new MyinfoGridViewAdapter(getContext(), myinfo.getImages());
+        gridViewImages.setAdapter(ImageGridAdapter);
+
+        return view;
+
     }
 }

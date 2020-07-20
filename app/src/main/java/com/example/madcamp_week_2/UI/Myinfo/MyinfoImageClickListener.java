@@ -1,15 +1,16 @@
-package com.example.madcamp_week_2.UI.Gallery;
+package com.example.madcamp_week_2.UI.Myinfo;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
+
+import com.example.madcamp_week_2.UI.Gallery.ImageActivity;
 
 import java.io.ByteArrayOutputStream;
 
-public class ImageClickListener implements OnClickListener {
+public class MyinfoImageClickListener implements OnClickListener {
 
     Context context;
 
@@ -20,7 +21,7 @@ public class ImageClickListener implements OnClickListener {
     String title;
     String name;
 
-    public ImageClickListener(Context context, Bitmap imageID, String title, String name) {
+    public MyinfoImageClickListener(Context context, Bitmap imageID, String title, String name) {
         this.context = context;
         this.imageID = imageID;
         this.title = title;

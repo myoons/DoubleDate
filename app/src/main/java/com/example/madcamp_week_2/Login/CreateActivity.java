@@ -60,11 +60,11 @@ public class CreateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String_ID = ID.getText().toString();
 
-                createcontents.put("email",String_ID);
-                url = "http://192.249.19.244:1480/sojin/duplicate";
-
+                createcontents.put("ID",String_ID);
+                url = "http://192.249.19.244:1480/sojin/check_id";
                 CreateActivity.NetworkTask networkTask = new CreateActivity.NetworkTask(url, createcontents);
                 networkTask.execute();
+
             }
         });
 
@@ -72,9 +72,10 @@ public class CreateActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // For Check
-                check = "1";
-                result = "1";
+
+//                // For Check
+//                check = "1";
+//                result = "1";
 
                 if (check.equals("1") && result.equals("1")) {
 

@@ -49,6 +49,11 @@
             android:label="Find Account">
         </activity>
 
+        <activity
+            android:name=".UI.Myinfo.MyinfoImageActivity"
+            android:label="Click MyInfo image">
+        </activity>
+
 
     </application>
 

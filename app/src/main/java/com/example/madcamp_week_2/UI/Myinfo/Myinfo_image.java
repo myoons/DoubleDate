@@ -1,16 +1,20 @@
-package com.example.madcamp_week_2.UI.Gallery;
+package com.example.madcamp_week_2.UI.Myinfo;
 
 import android.graphics.Bitmap;
 
-public class ImageInfo {
+public class Myinfo_image {
     private Bitmap image;
-    private String name;
+    private String date;
     private String title;
+    private String tag;
+    private String score;
 
-    public ImageInfo(Bitmap image, String name, String title) {
+    public Myinfo_image(Bitmap image, String date, String title, String tag, String score) {
         this.image = image;
-        this.name = name;
+        this.date = date;
         this.title = title;
+        this.tag = tag;
+        this.score = score;
     }
 
     public Bitmap getImage() {
@@ -21,12 +25,12 @@ public class ImageInfo {
         this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public String getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getTitle() {
@@ -37,4 +41,19 @@ public class ImageInfo {
         this.title = title;
     }
 
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
 }

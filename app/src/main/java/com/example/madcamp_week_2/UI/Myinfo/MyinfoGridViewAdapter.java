@@ -1,4 +1,4 @@
-package com.example.madcamp_week_2.UI.Gallery;
+package com.example.madcamp_week_2.UI.Myinfo;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,18 +8,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.example.madcamp_week_2.R;
+import com.example.madcamp_week_2.UI.Gallery.ImageClickListener;
+import com.example.madcamp_week_2.UI.Gallery.ImageInfo;
 
 import java.util.ArrayList;
 
-public class GridViewAdapter extends BaseAdapter {
+public class MyinfoGridViewAdapter extends BaseAdapter {
 
     Context context = null;
     // For Grid View
-    ArrayList<ImageInfo> imageIDs = null;
+    ArrayList<Myinfo_image> imageIDs = null;
 
 
-    public GridViewAdapter(Context context, ArrayList<ImageInfo> imageIDs) {
+    public MyinfoGridViewAdapter(Context context, ArrayList<Myinfo_image> imageIDs) {
         this.context = context;
         this.imageIDs = imageIDs;
     }
@@ -51,15 +52,17 @@ public class GridViewAdapter extends BaseAdapter {
         } else {
 
             Bitmap bmp = imageIDs.get(position).getImage();
-            String title = imageIDs.get(position).getTitle();
-            String name = imageIDs.get(position).getName();
-
             bmp = Bitmap.createScaledBitmap(bmp, 320, 320, false);
+
+            String date = imageIDs.get(position).getDate();
+            String title = imageIDs.get(position).getTitle();
+            String tag = imageIDs.get(position).getTag();
+            String score = imageIDs.get(position).getScore();
 
             imageView = new ImageView(context);
             imageView.setAdjustViewBounds(true);
             imageView.setImageDrawable(new BitmapDrawable(context.getResources(),bmp));
-            ImageClickListener imageViewClickListener = new ImageClickListener(context, bmp, title, name);
+            ImageClickListener imageViewClickListener = new ImageClickListener(context,bmp,title,tag,score,date);
             imageView.setOnClickListener(imageViewClickListener);
         }
         return imageView;

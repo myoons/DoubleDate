@@ -1,4 +1,4 @@
-package com.example.get_post_example;
+package com.example.madcamp_week_2.Connection;
 
 import java.io.BufferedReader;
 import java.io.Closeable;

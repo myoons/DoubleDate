@@ -32,13 +32,13 @@ public class ImageActivity extends AppCompatActivity {
         TextView nameView = (TextView) findViewById(R.id.user_name);
         TextView titleView = (TextView) findViewById(R.id.title);
 
-        byte[] byteArray = receivedIntent.getByteArrayExtra("image");
+//        byte[] byteArray = receivedIntent.getByteArrayExtra("image");
         String title = receivedIntent.getStringExtra("title");
         String name = receivedIntent.getStringExtra("name");
 
-        Bitmap myBitmap = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
+//        Bitmap myBitmap = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
+//        myImageView.setImageDrawable(new BitmapDrawable(getResources(),myBitmap));
 
-        myImageView.setImageDrawable(new BitmapDrawable(getResources(),myBitmap));
         nameView.setText(name);
         titleView.setText(title);
 

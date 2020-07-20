@@ -40,6 +40,8 @@ import com.example.madcamp_week_2.UI.Myinfo.Myinfo_image;
 import com.example.madcamp_week_2.UI.Tab.VPAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import net.daum.android.map.MapView;
+
 public class MainActivity extends AppCompatActivity {
 
     String result, ID, url;
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         context = this;
 
+
+//      context = this;
 //      checkSelfPermission();
 
         Intent receivedIntent = getIntent();

@@ -11,11 +11,11 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="148dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo2" />
 
     <LinearLayout
         android:layout_width="match_parent"

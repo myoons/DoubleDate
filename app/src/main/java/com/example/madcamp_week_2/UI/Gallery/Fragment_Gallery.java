@@ -39,11 +39,9 @@ public class Fragment_Gallery extends Fragment {
     ArrayList<ImageInfo> ImageInfoList;
 
     // List for Carousel
-    int[] localImages = {R.drawable.jg,
-            R.drawable.jl,
-            R.drawable.jr,
-            R.drawable.mp,
-            R.drawable.nw
+    int[] localImages = {R.drawable.dog1,
+            R.drawable.dog2,
+            R.drawable.dog3
     };
 
     // TODO: Rename parameter arguments, choose names that match

@@ -26,14 +26,14 @@ public class EntertainActivity extends AppCompatActivity {
         jsonParsing(getJsonString());
 
         GridView gridView = findViewById(R.id.gridview_entertains);
-        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_hospital, address_items);
+        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_entertains, address_items);
         gridView.setAdapter(gridViewAdapter);
     }
 
     private String getJsonString(){
         String json = "";
         try {
-            InputStream is = getApplicationContext().getAssets().open("entertain.json");
+            InputStream is = getApplicationContext().getAssets().open("entertains.json");
             int fileSize = is.available();
             byte[] buffer = new byte[fileSize];
             is.read(buffer);

@@ -26,7 +26,7 @@ public class HotelActivity extends AppCompatActivity {
         jsonParsing(getJsonString());
 
         GridView gridView = findViewById(R.id.gridview_hotel);
-        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_hospital, address_items);
+        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_hotel, address_items);
         gridView.setAdapter(gridViewAdapter);
     }
 

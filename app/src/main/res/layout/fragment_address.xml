@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/brown_1"
     android:orientation="vertical">
 
     <TextView
@@ -18,9 +19,9 @@
         android:layout_marginTop="50dp"
         android:id="@+id/hospital"
         android:layout_marginLeft="20dp"
+        android:background="@drawable/address_item"
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:elevation="3dp"
         android:layout_weight="1"
         android:layout_height="100dp"
@@ -30,12 +31,13 @@
             android:layout_marginLeft="10dp"
             android:layout_width="70dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
+            android:padding="10dp"
+            android:src="@drawable/hospital"
             android:layout_height="70dp"/>
 
         <Button
             android:id="@+id/button_hospital"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:textColor="@color/brown_green"
             android:layout_width="match_parent"
             android:layout_height="90dp"
@@ -49,9 +51,9 @@
 
     <LinearLayout
         android:id="@+id/Cafe"
+        android:background="@drawable/address_item"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/white"
         android:layout_weight="1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -62,12 +64,13 @@
         <ImageView
             android:layout_marginLeft="10dp"
             android:layout_width="70dp"
+            android:padding="10dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/hotel"
             android:layout_height="70dp"/>
 
         <Button
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:textColor="@color/brown_green"
             android:layout_width="match_parent"
             android:layout_height="90dp"
@@ -83,8 +86,8 @@
     <LinearLayout
         android:id="@+id/Rooms"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="100dp"
+        android:background="@drawable/address_item"
         android:layout_weight="1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -96,11 +99,12 @@
             android:layout_marginLeft="10dp"
             android:layout_width="70dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
+            android:padding="15dp"
+            android:src="@drawable/shop"
             android:layout_height="70dp"/>
 
         <Button
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:id="@+id/button_shop"
             android:textColor="@color/brown_green"
             android:layout_width="match_parent"
@@ -119,7 +123,7 @@
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="50dp"
-        android:background="@color/white"
+        android:background="@drawable/address_item"
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:elevation="3dp"
@@ -128,13 +132,14 @@
 
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/cafe"
+            android:padding="10dp"
             android:layout_width="70dp"
             android:layout_gravity="center"
             android:layout_height="70dp"/>
 
         <Button
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:fontFamily="@font/bm"
             android:layout_height="90dp"

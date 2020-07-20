@@ -59,7 +59,7 @@ public class Fragment_Address extends Fragment {
         btn_entertain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),HotelActivity.class);
+                Intent intent = new Intent(getActivity(),EntertainActivity.class);
                 startActivity(intent);
             }
         });

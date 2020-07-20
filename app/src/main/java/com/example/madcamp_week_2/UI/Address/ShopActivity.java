@@ -25,7 +25,7 @@ public class ShopActivity extends AppCompatActivity {
         jsonParsing(getJsonString());
 
         GridView gridView = findViewById(R.id.gridview_shop);
-        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_hospital, address_items);
+        CustomArrayAdapter gridViewAdapter = new CustomArrayAdapter(getApplicationContext(), R.layout.list_shop, address_items);
         gridView.setAdapter(gridViewAdapter);
     }
 

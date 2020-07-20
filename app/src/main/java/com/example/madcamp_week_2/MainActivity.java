@@ -28,12 +28,18 @@ import java.net.URL;
 import com.example.madcamp_week_2.UI.Tab.VPAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import net.daum.android.map.MapView;
+
 public class MainActivity extends AppCompatActivity {
+
+    private MapView mapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mapView = findViewById(R.id.map_view);
 
 //      context = this;
 //      checkSelfPermission();

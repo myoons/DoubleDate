@@ -33,9 +33,13 @@
             android:src="@mipmap/ic_launcher"
             android:layout_height="70dp"/>
 
-        <TextView
+        <Button
+            android:id="@+id/button_hospital"
+            android:background="@color/white"
+            android:textColor="@color/brown_green"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:fontFamily="@font/bm"
             android:text="Hospital"
             android:gravity="center"
             android:layout_gravity="center"
@@ -62,10 +66,14 @@
             android:src="@mipmap/ic_launcher"
             android:layout_height="70dp"/>
 
-        <TextView
+        <Button
+            android:background="@color/white"
+            android:textColor="@color/brown_green"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:text="Hospital"
+            android:id="@+id/button_hotel"
+            android:fontFamily="@font/bm"
+            android:text="Hotel"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20dp"/>
@@ -91,10 +99,14 @@
             android:src="@mipmap/ic_launcher"
             android:layout_height="70dp"/>
 
-        <TextView
+        <Button
+            android:background="@color/white"
+            android:id="@+id/button_shop"
+            android:textColor="@color/brown_green"
             android:layout_width="match_parent"
+            android:fontFamily="@font/bm"
             android:layout_height="90dp"
-            android:text="Hospital"
+            android:text="Shop"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20dp"/>
@@ -121,10 +133,14 @@
             android:layout_gravity="center"
             android:layout_height="70dp"/>
 
-        <TextView
+        <Button
+            android:background="@color/white"
             android:layout_width="match_parent"
+            android:fontFamily="@font/bm"
             android:layout_height="90dp"
-            android:text="Hospital"
+            android:id="@+id/button_entertains"
+            android:textColor="@color/brown_green"
+            android:text="CAFE"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20dp"/>

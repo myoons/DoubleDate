@@ -1,25 +1,32 @@
 package com.example.madcamp_week_2.UI.Address;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+import java.io.ByteArrayOutputStream;
+
 public class AddressItem implements Comparable {
-    private byte[] image;
+//    private byte[] image;
     private String name;
     private String address;
     private String number;
 
-    public AddressItem(byte[] image, String name, String address, String number) {
-        this.image = image;
+    public AddressItem(String name, String number) {
+//        this.image = image;
         this.name = name;
-        this.address = address;
         this.number = number;
+
     }
 
-    public byte[] getImage() {
-        return image;
-    }
 
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
+//    public byte[] getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(byte[] image) {
+//        this.image = image;
+//    }
 
     public String getName() {
         return name;

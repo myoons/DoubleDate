@@ -107,6 +107,8 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         GpsTracker gpsTracker = new GpsTracker(MapActivity.this);
         double latitude = gpsTracker.getLatitude(); // 위도
         double longitude = gpsTracker.getLongitude();
+
+
         lat_json = String.valueOf(latitude);
         long_json = String.valueOf(longitude);
 

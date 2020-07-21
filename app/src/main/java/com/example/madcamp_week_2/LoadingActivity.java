@@ -46,7 +46,7 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
 
         ImageView splashGif = (ImageView)findViewById(R.id.loading_view);
-        Glide.with(this).load(R.raw.dog_walking).into(splashGif);
+        Glide.with(this).load(R.raw.loading).into(splashGif);
         startLoading();
         splashAnimation();
     }

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.madcamp_week_2.R;
 import com.example.madcamp_week_2.UI.Address.HospitalActivity;
 
@@ -45,6 +46,7 @@ public class Fragment_Message extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment Fragment_4.
      */
+
     // TODO: Rename and change types and number of parameters
     public static Fragment_Message newInstance(String param1, String param2) {
         Fragment_Message fragment = new Fragment_Message();
@@ -68,8 +70,11 @@ public class Fragment_Message extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message,container,false);
-        dog_button = view.findViewById(R.id.btn_map);
-        dog_button.setOnClickListener(new View.OnClickListener() {
+
+        ImageView splashGif = (ImageView) view.findViewById(R.id.btn_map);
+        Glide.with(getActivity()).load(R.raw.message1).into(splashGif);
+
+        splashGif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MapActivity.class);

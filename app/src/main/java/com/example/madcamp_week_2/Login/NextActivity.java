@@ -67,6 +67,8 @@ public class NextActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }.start();
+
+                finish();
             }
         });
     }

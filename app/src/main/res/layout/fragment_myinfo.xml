@@ -206,10 +206,10 @@
     <GridView
         android:id="@+id/myinfo_gridview"
         android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_height="218dp"
         android:layout_gravity="center"
-        android:numColumns="4"
         android:layout_marginTop="20dp"
-        android:background="@color/brown_2" />
+        android:background="@color/brown_2"
+        android:numColumns="4" />
 
 </LinearLayout>

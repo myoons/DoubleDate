@@ -2,47 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/brown_1">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Image Title"
-        android:id="@+id/title"
+        android:id="@+id/si_title"
         android:gravity="center"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
         android:layout_marginTop="30dp"
         android:textSize="30dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:paddingRight="8dp"
-        android:id="@+id/user_name"
+        android:id="@+id/si_date"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
         android:gravity="right"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Date"
         android:textSize="20dp"/>
 
-    <View
-        android:background="#66bdbdbd"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:id="@+id/si_iV"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="3dp"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:elevation="3dp"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/dog1"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="평가하기"
-        android:layout_marginRight="6dp"
-        android:id="@+id/rating_button"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/si_tag"
+            android:fontFamily="@font/bm"
+            android:textColor="@color/brown_green"
+            android:gravity="top"
+            android:layout_height="match_parent"
+            android:layout_marginLeft ="3dp"
+            android:text="Tag"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/si_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/gallery_button"
+            android:fontFamily="@font/bm"
+            android:gravity="center"
+            android:text="평가하기"
+            android:textColor="@color/brown_green" />
+
+    </LinearLayout>
 
 </LinearLayout>

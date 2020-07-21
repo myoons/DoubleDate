@@ -1,13 +1,19 @@
 package com.example.madcamp_week_2.UI.Gallery;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import com.example.madcamp_week_2.Connection.RequestHttpConnection;
+import com.example.madcamp_week_2.UI.Myinfo.Myinfo;
 import com.example.madcamp_week_2.UI.Myinfo.MyinfoImageActivity;
+
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 
@@ -19,13 +25,12 @@ public class ImageClickListener implements OnClickListener {
     // imageID는 확대해서 보여줄 이미지의 리소스 ID입니다.
 
     Bitmap imageID;
-    String title, score, date, tag;
+    String title, date, tag;
 
-    public ImageClickListener(Context context, Bitmap imageID, String title, String tag, String score, String date) {
+    public ImageClickListener(Context context, Bitmap imageID, String title, String tag, String date) {
         this.context = context;
         this.imageID = imageID;
         this.title = title;
-        this.score = score;
         this.date = date;
         this.tag = tag;
     }
@@ -44,14 +49,14 @@ public class ImageClickListener implements OnClickListener {
         resize.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
 
-        Intent intent = new Intent(context, MyinfoImageActivity.class);
+        Intent intent = new Intent(context, ImageActivity.class);
         intent.putExtra("image", byteArray);
         intent.putExtra("title",title);
         intent.putExtra("tag",tag);
-        intent.putExtra("score",score);
         intent.putExtra("date",date);
 
         context.startActivity(intent);
     }
+
 }
 

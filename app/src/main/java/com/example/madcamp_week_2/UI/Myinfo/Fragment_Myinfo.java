@@ -28,7 +28,6 @@ public class Fragment_Myinfo extends Fragment {
     ImageView profile;
     TextView ID, nickname, number, gender, animals, bone, score;
 
-    Myinfo myinfo = ((MainActivity) MainActivity.context).myinfo;
     ArrayList<Myinfo_image> img_arr = new ArrayList<>();
     ArrayList<Bitmap> bmp_arr = new ArrayList<>();
 
@@ -76,7 +75,11 @@ public class Fragment_Myinfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment__myinfo, container, false);
+        View view = inflater.inflate(R.layout.fragment_myinfo, container, false);
+
+        Myinfo myinfo = ((MainActivity) MainActivity.context).myinfo;
+
+        System.out.println(myinfo);
 
         ID = view.findViewById(R.id.myinfo_ID);
         nickname = view.findViewById(R.id.myinfo_nickname);

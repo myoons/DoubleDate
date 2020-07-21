@@ -48,13 +48,8 @@
         android:elevation="3dp"
         android:layout_marginLeft="10dp">
 
-        <ImageView
-            android:id="@+id/IV_Videos"
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3">
-        </ImageView>
+
+
 
     </LinearLayout>
 

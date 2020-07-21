@@ -44,6 +44,7 @@ import java.util.ArrayList;
 
 import com.example.madcamp_week_2.Connection.RequestHttpConnection;
 import com.example.madcamp_week_2.Login.LoginActivity;
+import com.example.madcamp_week_2.UI.Gallery.AddActivity;
 import com.example.madcamp_week_2.UI.Gallery.ImageInfo;
 import com.example.madcamp_week_2.UI.Myinfo.Myinfo;
 import com.example.madcamp_week_2.UI.Myinfo.Myinfo_image;
@@ -75,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent receivedIntent = getIntent();
         my_ID = receivedIntent.getStringExtra("ID");
+
+//        my_ID = ((LoginActivity) LoginActivity.mContext).String_ID;
+
         url = "http://192.249.19.244:1480/sojin/info";
         url_image = "http://192.249.19.244:1480/yoonseo/all";
 
@@ -93,13 +97,8 @@ public class MainActivity extends AppCompatActivity {
         tablayout.getTabAt(3).setIcon(R.drawable.message);
         tablayout.getTabAt(4).setIcon(R.drawable.myinfo);
 
-        tablayout.getTabAt(0).setIcon(R.drawable.icon_1);
-        tablayout.getTabAt(1).setIcon(R.drawable.icon_2);
-        tablayout.getTabAt(2).setIcon(R.drawable.icon_3);
-        tablayout.getTabAt(3).setIcon(R.drawable.icon_4);
-        tablayout.getTabAt(4).setIcon(R.drawable.icon_4);
-
         logincontents.put("ID",my_ID);
+
         MainActivity.NetworkTask networkTask_login = new MainActivity.NetworkTask(url, logincontents);
         networkTask_login.execute();
 
@@ -166,32 +165,9 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             try {
-                System.out.println("myinfo_main : " + s);
+
+
                 JSONObject jObject = new JSONObject(s);
-
-                myinfo.setID(jObject.getString("ID"));
-                myinfo.setAnimals(jObject.getString("animals"));
-                myinfo.setBone(jObject.getString("bone"));
-                myinfo.setGender(jObject.getString("gender"));
-                myinfo.setNumber(jObject.getString("number"));
-                myinfo.setNickname(jObject.getString("nickname"));
-                myinfo.setScore(jObject.getString("score"));
-
-                JSONArray image_arr = jObject.getJSONArray("images");
-
-                for (int i=0; i<image_arr.length(); i++) {
-                    JSONObject imageObject = (JSONObject) image_arr.get(i);
-                    /**
-                     * 받은 이미지 String --> Bitmap으로 바꿔주는 코드 필요하다
-                     */
-//                    Myinfo_image temp_object = new Myinfo_image(imageObject.getString("image"),
-//                                                                imageObject.getString("date"),
-//                                                                imageObject.getString("title"),
-//                                                                imageObject.getString("tag"),
-//                                                                imageObject.getString("score"));
-//
-//                    myinfo_image_arr.add(temp_object);
-                }
 
                 my_nickname = jObject.getString("nickname");
 
@@ -239,8 +215,6 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < image_arr.length(); i++) {
                         JSONObject imageObject = (JSONObject) image_arr.get(i);
 
-                        System.out.println("image json : " + imageObject);
-                        System.out.println("image : " + imageObject.getString("image"));
                         ID = imageObject.getString("ID");
                         date = imageObject.getString("date").substring(0,10);
                         score = imageObject.getString("pscore");

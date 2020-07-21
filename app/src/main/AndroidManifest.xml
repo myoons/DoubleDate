@@ -7,14 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <meta-data android:name="com.kakao.sdk.AppKey" android:value="2435920dcfc3a79ef8712efebf322f1d"/>
-=======
+
     <uses-permission-sdk-23 android:name="android.hardware.camera.autofocus"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
-    <meta-data android:name="com.kakao.sdk.AppKey" android:value="n47LaTdsZ3lCtP5cV7DB+WrH3Yg="/>
->>>>>>> 6b05fa93c6b66df9b0b08370bf25d4e15c9ea3a9
+<!--    <meta-data android:name="com.kakao.sdk.AppKey" android:value="n47LaTdsZ3lCtP5cV7DB+WrH3Yg="/>-->
 
 
     <application
@@ -25,9 +24,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="2435920dcfc3a79ef8712efebf322f1d"></meta-data>
+            android:value="2435920dcfc3a79ef8712efebf322f1d">
+        </meta-data>
+
         <activity android:name=".LoadingActivity"
             android:screenOrientation="portrait"
             android:noHistory="true">
@@ -104,9 +106,9 @@
 
         <activity
             android:name=".UI.Address.AddressActivity"
-            android:label="Find Account"
-            >
+            android:label="Find Account">
         </activity>
+
         <activity
             android:name=".UI.Message.MapActivity"/>
 

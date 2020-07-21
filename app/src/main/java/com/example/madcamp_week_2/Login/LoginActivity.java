@@ -23,14 +23,14 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     EditText ID,PW;
-    String String_ID,String_PW,result;
+    public String String_ID,String_PW,result;
     String url;
     ContentValues logincontents = new ContentValues();
     Button btn_login;
     Button btn_create;
     Button btn_find;
     CheckBox cb_save;
-    private Context mContext;
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,16 +126,17 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             try {
-
+                System.out.println("login : " + s);
                 JSONObject jObject = new JSONObject(s);
                 result = jObject.getString("result");
 
                 if (result.equals("0")) {
                     Toast.makeText(getApplicationContext(),"Login Failed : ID or PW may be wrong",Toast.LENGTH_SHORT).show();
                 } else if (result.equals("1")) {
-
+                    System.out.println("login String_ID : " + String_ID);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("ID",String_ID);
+
+                    intent.putExtra("ID", String_ID);
                     startActivity(intent);
                     finish();
                 }

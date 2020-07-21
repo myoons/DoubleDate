@@ -89,6 +89,7 @@ public class Fragment_Myinfo extends Fragment {
         bone = view.findViewById(R.id.myinfo_bone);
         score = view.findViewById(R.id.myinfo_score);
 
+        System.out.println("absadfsad"+myinfo.getID());
         ID.setText(myinfo.getID());
         nickname.setText(myinfo.getNickname());
         number.setText(myinfo.getNumber());

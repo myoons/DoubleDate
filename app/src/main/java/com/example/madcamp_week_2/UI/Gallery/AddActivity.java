@@ -60,11 +60,14 @@ public class AddActivity extends AppCompatActivity {
     int size;
     String message;
     ContentValues addcontents = new ContentValues();
+    public ImageInfo added_info;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        context = this;
 
         my_nickname = ((MainActivity) MainActivity.context).my_nickname;
         my_ID = ((MainActivity) MainActivity.context).my_ID;
@@ -113,11 +116,10 @@ public class AddActivity extends AppCompatActivity {
 
                 title = add_title.getText().toString();
                 tag = add_tag.getText().toString();
-                scaled_image = Bitmap.createScaledBitmap(added_image, 100, 100, false);
+                scaled_image = Bitmap.createScaledBitmap(added_image, 320, 320, false);
 
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 scaled_image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
 
                 url_image = "http://192.249.19.244:1480/yoonseo/upload";
 
@@ -130,24 +132,9 @@ public class AddActivity extends AppCompatActivity {
                 AddActivity.NetworkTask_Image networkTask_image = new AddActivity.NetworkTask_Image(url_image, addcontents);
                 networkTask_image.execute();
 
-//                Fragment_Gallery fragment_gallery = new Fragment_Gallery();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.request_layout,fragment_gallery).commit();
-//
-//                Bundle bundle = new Bundle(5); // 파라미터는 전달할 데이터 개수
-//                bundle.putString("title",title);
-//                bundle.putString("tag",tag);
-//                bundle.putByteArray("image",byteArray);
-//                bundle.putString("Nickname",my_nickname);
-//                bundle.putString("date",date);
-//
-//                fragment_gallery.setArguments(bundle);
+                if (date == null) date = "2020-07-22";
 
-                Intent intent = new Intent(AddActivity.this, RequestActivity.class);
-                intent.putExtra("title",title);
-                intent.putExtra("tag",tag);
-                intent.putExtra("nickname",my_nickname);
-                intent.putExtra("date",date);
-                intent.putExtra("image",byteArray);
+                added_info = new ImageInfo(scaled_image, my_nickname, title, date.substring(0,10), tag);
 
                 finish();
             }

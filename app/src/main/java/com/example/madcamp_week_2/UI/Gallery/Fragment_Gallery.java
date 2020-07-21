@@ -55,9 +55,7 @@ public class Fragment_Gallery extends Fragment {
     ArrayList<ImageInfo> ImageInfoList;
     Button btn_add;
     ImageButton btn_reset;
-    String added_title, added_tag, added_Nickname, added_date;
-    byte[] added_image_ba;
-    Bitmap added_image;
+    String check = "0";
     ImageInfo added_imageinfo;
 
     public Fragment_Gallery() {
@@ -77,8 +75,8 @@ public class Fragment_Gallery extends Fragment {
         view = inflater.inflate(R.layout.fragment_gallery,container,false);
 
         ImageInfoList = ((MainActivity) MainActivity.context).gallery_images;
-        GridView gridViewImages = (GridView) view.findViewById(R.id.GV_Images);
-        GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), ImageInfoList);
+        final GridView gridViewImages = (GridView) view.findViewById(R.id.GV_Images);
+        final GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), ImageInfoList);
         gridViewImages.setAdapter(ImageGridAdapter);
 
         initView();
@@ -87,6 +85,7 @@ public class Fragment_Gallery extends Fragment {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                check = "0";
                 Intent intent = new Intent(getContext(),AddActivity.class);
                 startActivity(intent);
             }
@@ -97,19 +96,16 @@ public class Fragment_Gallery extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Bundle added_bundle = getArguments();
-                System.out.println("added_bundle : " + added_bundle);
+                if (check.equals("0")) {
 
-                ImageInfoList = ((MainActivity) MainActivity.context).gallery_images;
-                GridView gridViewImages = (GridView) view.findViewById(R.id.GV_Images);
-                GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), ImageInfoList);
-                gridViewImages.setAdapter(ImageGridAdapter);
+                    added_imageinfo = ((AddActivity) AddActivity.context).added_info;
+                    ImageInfoList.add(added_imageinfo);
 
-//                ImageInfoList.add(added_imageinfo);
-//
-//                GridView gridViewImages = (GridView) view.findViewById(R.id.GV_Images);
-//                GridViewAdapter ImageGridAdapter = new GridViewAdapter(getContext(), ImageInfoList);
-//                gridViewImages.setAdapter(ImageGridAdapter);
+                    GridViewAdapter ImageGridAdapter_added = new GridViewAdapter(getContext(), ImageInfoList);
+                    gridViewImages.setAdapter(ImageGridAdapter_added);
+                    check = "1";
+                }
+
             }
         });
         return view;

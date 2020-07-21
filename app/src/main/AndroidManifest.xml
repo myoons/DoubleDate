@@ -54,11 +54,6 @@
         </activity>
 
         <activity
-            android:name=".UI.Gallery.RequestActivity"
-            android:label="Request Image">
-        </activity>
-
-        <activity
             android:name=".UI.Address.HotelActivity"
             android:label="Selected Image">
         </activity>

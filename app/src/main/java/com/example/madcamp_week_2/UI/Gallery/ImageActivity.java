@@ -35,6 +35,7 @@ public class ImageActivity extends AppCompatActivity {
 //        byte[] byteArray = receivedIntent.getByteArrayExtra("image");
         String title = receivedIntent.getStringExtra("title");
         String name = receivedIntent.getStringExtra("name");
+        String tag = receivedIntent.getStringExtra("tag");
 
 //        Bitmap myBitmap = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
 //        myImageView.setImageDrawable(new BitmapDrawable(getResources(),myBitmap));

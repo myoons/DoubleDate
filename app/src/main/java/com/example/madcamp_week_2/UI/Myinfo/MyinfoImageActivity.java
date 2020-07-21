@@ -44,6 +44,5 @@ public class MyinfoImageActivity extends AppCompatActivity {
         myinfo_score.setText(score);
         myinfo_tag.setText(tag);
         myinfo_title.setText(title);
-
     }
 }

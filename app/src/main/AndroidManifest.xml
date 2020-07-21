@@ -20,7 +20,7 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="2435920dcfc3a79ef8712efebf322f1d"></meta-data>
-        <activity android:name=".Login.LoginActivity"
+        <activity android:name=".LoadingActivity"
             android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
@@ -49,6 +49,10 @@
             android:label="Selected Image">
         </activity>
 
+        <activity
+            android:name=".Login.LoginActivity"
+            android:label="Selected Image">
+        </activity>
 
         <activity
             android:name=".UI.Gallery.RatingActivity"

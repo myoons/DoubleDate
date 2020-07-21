@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent receivedIntent = getIntent();
         ID = receivedIntent.getStringExtra("ID");
-        url = "http://192.249.19.244:1480/sojin/setup";
+        url = "http://192.249.19.244:1480/sojin/info";
 
         ViewPager vp = findViewById(R.id.viewpager);
         VPAdapter adapter = new VPAdapter(getSupportFragmentManager());
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         tablayout.getTabAt(2).setIcon(R.drawable.icon_3);
         tablayout.getTabAt(3).setIcon(R.drawable.icon_4);
         tablayout.getTabAt(4).setIcon(R.drawable.icon_4);
-        tablayout.getTabAt(5).setIcon(R.drawable.icon_4);
 
         logincontents.put("ID",ID);
         MainActivity.NetworkTask networkTask = new MainActivity.NetworkTask(url, logincontents);
@@ -112,31 +111,32 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(s);
                 JSONObject jObject = new JSONObject(s);
 
-                myinfo.setID(jObject.getString("ID"));
-                myinfo.setAnimals(jObject.getString("animals"));
-                myinfo.setBone(jObject.getString("bone"));
-                myinfo.setGender(jObject.getString("gender"));
-                myinfo.setNumber(jObject.getString("number"));
-                myinfo.setNickname(jObject.getString("nickname"));
-                myinfo.setScore(jObject.getString("score"));
+//                JSONArray image_arr = jObject.getJSONArray("images");
 
-                JSONArray image_arr = jObject.getJSONArray("images");
-
-                for (int i=0; i<image_arr.length(); i++) {
-                    JSONObject imageObject = (JSONObject) image_arr.get(i);
+//                for (int i=0; i<image_arr.length(); i++) {
+//                    JSONObject imageObject = (JSONObject) image_arr.get(i);
                     /**
                      * 받은 이미지 String --> Bitmap으로 바꿔주는 코드 필요하다
                      */
-                    Myinfo_image temp_object = new Myinfo_image(imageObject.getString("image"),
-                                                                imageObject.getString("date"),
-                                                                imageObject.getString("title"),
-                                                                imageObject.getString("tag"),
-                                                                imageObject.getString("score"));
+//                    Myinfo_image temp_object = new :::Myinfo_image(imageObject.getString("image"),
+//                                                                imageObject.getString("date"),
+//                                                                imageObject.getString("title"),
+//                                                                imageObject.getString("tag"),
+//                                                                imageObject.getString("score"));
+//
+//                    myinfo_image_arr.add(temp_object);
+//                }
 
-                    myinfo_image_arr.add(temp_object);
-                }
 
-                myinfo.setImages(myinfo_image_arr);
+                myinfo = new Myinfo(jObject.getString("ID"),
+                                    jObject.getString("nickname"),
+                                    jObject.getString("phone_number"),
+                                    jObject.getString("bone"),
+                                    jObject.getString("score"),
+                                    jObject.getString("animals"),
+                                    jObject.getString("gender"),
+                                    myinfo_image_arr);
+
             }catch (Exception e) {e.printStackTrace();}
         }
     }

@@ -62,8 +62,8 @@ public class MyinfoGridViewAdapter extends BaseAdapter {
             imageView = new ImageView(context);
             imageView.setAdjustViewBounds(true);
             imageView.setImageDrawable(new BitmapDrawable(context.getResources(),bmp));
-            ImageClickListener imageViewClickListener = new ImageClickListener(context,bmp,title,tag,score,date);
-            imageView.setOnClickListener(imageViewClickListener);
+            MyinfoImageClickListener myinfoImageClickListener = new MyinfoImageClickListener(context,bmp,title,date,tag,score);
+            imageView.setOnClickListener(myinfoImageClickListener);
         }
         return imageView;
     }

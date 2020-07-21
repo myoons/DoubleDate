@@ -98,7 +98,7 @@ public class Fragment_Gallery extends Fragment {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             Bitmap bitmap = bitmapDrawable.getBitmap();
 
-            ImageInfo tempinfo = new ImageInfo(bitmap,Integer.toString(i),Integer.toString(i));
+            ImageInfo tempinfo = new ImageInfo(bitmap,"name","title","score","date","tag");
 
             ImageInfoList.add(tempinfo);
         }
@@ -124,13 +124,13 @@ public class Fragment_Gallery extends Fragment {
             public View setViewForPosition(int position) {
                 View customView = getLayoutInflater().inflate(R.layout.carousel_view, null);
 
-                ImageView fruitImageView = (ImageView) customView.findViewById(R.id.carousel_image);
+                ImageView moving_View = (ImageView) customView.findViewById(R.id.carousel_image);
                 ImageInfo tempinfo = ImageInfoList.get(position);
 
-                ImageClickListener imageViewClickListener = new ImageClickListener(getContext(),tempinfo.getImage(), tempinfo.getTitle(), tempinfo.getName());
-                fruitImageView.setOnClickListener(imageViewClickListener);
+                ImageClickListener imageViewClickListener = new ImageClickListener(getContext(),tempinfo.getImage(), tempinfo.getTitle(), tempinfo.getTag(), tempinfo.getDate());
+                moving_View.setOnClickListener(imageViewClickListener);
 
-                fruitImageView.setImageResource(localImages[position]);
+                moving_View.setImageResource(localImages[position]);
 
                 localCarouselView.setIndicatorGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP);
 

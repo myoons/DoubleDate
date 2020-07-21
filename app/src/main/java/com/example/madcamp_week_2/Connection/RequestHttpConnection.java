@@ -51,6 +51,9 @@ public class RequestHttpConnection {
             urlconn.setRequestProperty("Accept_Charset", "UTF-8");
             urlconn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded;charset=UTF-8");
 
+            urlconn.setDoOutput(true);
+            urlconn.setDoInput(true);
+
             String strParams = sbParams.toString();
             OutputStream os = urlconn.getOutputStream();
 

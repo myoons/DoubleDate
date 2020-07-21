@@ -1,4 +1,4 @@
-package com.example.madcamp_week_2.UI.Address;
+package com.example.madcamp_week_2.UI.Message;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -26,6 +26,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.madcamp_week_2.Connection.HttpGet;
 import com.example.madcamp_week_2.R;
+import com.example.madcamp_week_2.UI.Address.GpsTracker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.daum.mf.map.api.MapPOIItem;
@@ -46,7 +47,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class AddressActivity extends AppCompatActivity implements MapView.CurrentLocationEventListener, MapReverseGeoCoder.ReverseGeoCodingResultListener  {
+public class MapActivity extends AppCompatActivity implements MapView.CurrentLocationEventListener, MapReverseGeoCoder.ReverseGeoCodingResultListener  {
 
     private static final String LOG_TAG = "KakaoMapActivity";
     private MapView mMapView;
@@ -74,27 +75,23 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.address_single);
+        setContentView(R.layout.message_map);
 
         Intent receivedIntent = getIntent();
-        String number = receivedIntent.getStringExtra("number");
-        String name = receivedIntent.getStringExtra("name");
-        menu = number;
+       // String number = receivedIntent.getStringExtra("number");
+       // String name = receivedIntent.getStringExtra("name");
+        menu = "number";
 
-        ImageView imageview = (ImageView) findViewById(R.id.hospital_ImageView);
-        TextView tv_name = (TextView) findViewById(R.id.hospital_name);
-        TextView tv_number = (TextView) findViewById(R.id.hospital_number);
+//        ImageView imageview = (ImageView) findViewById(R.id.hospital_ImageView);
+//        TextView tv_name = (TextView) findViewById(R.id.hospital_name);
+//        TextView tv_number = (TextView) findViewById(R.id.hospital_number);
+//
+//
+//
+//        tv_name.setText(name);
+//        tv_number.setText(number);
 
-//        byte[] byteArray = receivedIntent.getByteArrayExtra("image");
-
-        // If getting image from server success
-//        Bitmap myBitmap = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
-//        imageview.setImageDrawable(new BitmapDrawable(getResources(),myBitmap));
-
-        tv_name.setText(name);
-        tv_number.setText(number);
-
-        mMapView = (MapView) findViewById(R.id.map_view);
+        mMapView = (MapView) findViewById(R.id.message_map);
         //mMapView.setOpenAPIKeyAuthenticationResultListener();
         mMapView.setDaumMapApiKey("2435920dcfc3a79ef8712efebf322f1d");
         mMapView.setCurrentLocationEventListener((MapView.CurrentLocationEventListener) this);
@@ -107,13 +104,13 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
             checkRunTimePermission();
         }
 
-        GpsTracker gpsTracker = new GpsTracker(AddressActivity.this);
+        GpsTracker gpsTracker = new GpsTracker(MapActivity.this);
         double latitude = gpsTracker.getLatitude(); // 위도
         double longitude = gpsTracker.getLongitude();
         lat_json = String.valueOf(latitude);
         long_json = String.valueOf(longitude);
 
-       // SEARCH_URL = "https://dapi.kakao.com/v2/local/search/keyword.json?y=" + lat_json + "&x=" + long_json + "&radius=20000&query=";
+        // SEARCH_URL = "https://dapi.kakao.com/v2/local/search/keyword.json?y=" + lat_json + "&x=" + long_json + "&radius=20000&query=";
         SEARCH_URL = "https://dapi.kakao.com/v2/local/search/keyword.json?y=37.514322572335935&x=127.06283102249932&radius=20000&query=";
 
         //httpGet.get("https://dapi.kakao.com/v2/local/search/keyword.")
@@ -128,7 +125,7 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
 
         REQUEST_URL = SEARCH_URL + encode_query;
 
-        progressDialog = new ProgressDialog( AddressActivity.this );
+        progressDialog = new ProgressDialog( MapActivity.this );
         progressDialog.setMessage("인내는 미덕이다...");
         progressDialog.show();
 
@@ -136,7 +133,7 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
 
         mMapView.setZoomLevel(4,false);
 
-        FloatingActionButton btn = findViewById(R.id.kakao);
+        FloatingActionButton btn = findViewById(R.id.find_someone);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,7 +152,6 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
         super.onDestroy();
         mMapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);
         mMapView.setShowCurrentLocationMarker(false);
-        finish();
     }
 
     @Override
@@ -230,13 +226,13 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])) {
 
-                    Toast.makeText(AddressActivity.this, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MapActivity.this, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
                     finish();
 
 
                 }else {
 
-                    Toast.makeText(AddressActivity.this, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MapActivity.this, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -248,7 +244,7 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
 
         //런타임 퍼미션 처리
         // 1. 위치 퍼미션을 가지고 있는지 체크합니다.
-        int hasFineLocationPermission = ContextCompat.checkSelfPermission(AddressActivity.this,
+        int hasFineLocationPermission = ContextCompat.checkSelfPermission(MapActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION);
 
 
@@ -265,19 +261,19 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
         } else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요합니다. 2가지 경우(3-1, 4-1)가 있습니다.
 
             // 3-1. 사용자가 퍼미션 거부를 한 적이 있는 경우에는
-            if (ActivityCompat.shouldShowRequestPermissionRationale(AddressActivity.this, REQUIRED_PERMISSIONS[0])) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(MapActivity.this, REQUIRED_PERMISSIONS[0])) {
 
                 // 3-2. 요청을 진행하기 전에 사용자가에게 퍼미션이 필요한 이유를 설명해줄 필요가 있습니다.
-                Toast.makeText(AddressActivity.this, "이 앱을 실행하려면 위치 접근 권한이 필요합니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MapActivity.this, "이 앱을 실행하려면 위치 접근 권한이 필요합니다.", Toast.LENGTH_LONG).show();
                 // 3-3. 사용자게에 퍼미션 요청을 합니다. 요청 결과는 onRequestPermissionResult에서 수신됩니다.
-                ActivityCompat.requestPermissions(AddressActivity.this, REQUIRED_PERMISSIONS,
+                ActivityCompat.requestPermissions(MapActivity.this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
 
 
             } else {
                 // 4-1. 사용자가 퍼미션 거부를 한 적이 없는 경우에는 퍼미션 요청을 바로 합니다.
                 // 요청 결과는 onRequestPermissionResult에서 수신됩니다.
-                ActivityCompat.requestPermissions(AddressActivity.this, REQUIRED_PERMISSIONS,
+                ActivityCompat.requestPermissions(MapActivity.this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
             }
 
@@ -290,7 +286,7 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
     //여기부터는 GPS 활성화를 위한 메소드들
     private void showDialogForLocationServiceSetting() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(AddressActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MapActivity.this);
         builder.setTitle("위치 서비스 비활성화");
         builder.setMessage("앱을 사용하기 위해서는 위치 서비스가 필요합니다.\n"
                 + "위치 설정을 수정하실래요?");
@@ -344,20 +340,20 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
 
 
 
-    private final MyHandler mHandler = new MyHandler(AddressActivity.this);
+    private final MapActivity.MyHandler mHandler = new MapActivity.MyHandler(MapActivity.this);
 
 
     private static class MyHandler extends Handler {
-        private final WeakReference<AddressActivity> weakReference;
+        private final WeakReference<MapActivity> weakReference;
 
-        public MyHandler(AddressActivity mainactivity) {
-            weakReference = new WeakReference<AddressActivity>(mainactivity);
+        public MyHandler(MapActivity mainactivity) {
+            weakReference = new WeakReference<MapActivity>(mainactivity);
         }
 
         @Override
         public void handleMessage(Message msg) {
 
-            AddressActivity mainactivity = weakReference.get();
+            MapActivity mainactivity = weakReference.get();
 
             if (mainactivity != null) {
                 switch (msg.what) {

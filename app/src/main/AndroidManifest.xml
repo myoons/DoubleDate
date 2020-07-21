@@ -89,6 +89,8 @@
             android:label="Find Account"
             >
         </activity>
+        <activity
+            android:name=".UI.Message.MapActivity"/>
 
     </application>
 

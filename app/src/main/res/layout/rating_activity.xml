@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:elevation="10dp"
-    android:background="@color/white"
+    android:background="@drawable/rating"
     android:layout_gravity="center"
     android:orientation="vertical">
 
@@ -13,13 +13,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:text="Score"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
         android:gravity="center"
         android:textSize="50dp"/>
 
     <View
-    android:background="#66bdbdbd"
-    android:layout_width="match_parent"
-    android:layout_height="1dp" />
+        android:background="@color/brown_green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
     <RatingBar
         android:id="@+id/ratingBar1"
@@ -31,14 +33,21 @@
         android:numStars="5"
         android:stepSize="0.5" />
 
+    <View
+        android:background="@color/brown_green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@android:color/transparent"
         android:onClick="mOnClose"
         android:padding="16dp"
         android:text="Close"
+        android:fontFamily="@font/bm"
+        android:textColor="@color/brown_green"
         android:textSize="17dp" />
 
 </LinearLayout>

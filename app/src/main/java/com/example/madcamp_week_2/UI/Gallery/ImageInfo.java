@@ -6,13 +6,12 @@ public class ImageInfo {
     private Bitmap image;
     private String name;
     private String title;
-    private String score,date,tag;
+    private String date,tag;
 
-    public ImageInfo(Bitmap image, String name, String title, String score, String date, String tag) {
+    public ImageInfo(Bitmap image, String name, String title, String date, String tag) {
         this.image = image;
         this.name = name;
         this.title = title;
-        this.score = score;
         this.date = date;
         this.tag = tag;
     }
@@ -20,14 +19,6 @@ public class ImageInfo {
     public String getTag() { return tag; }
 
     public void setTag(String tag) { this.tag = tag; }
-
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
 
     public String getDate() {
         return date;

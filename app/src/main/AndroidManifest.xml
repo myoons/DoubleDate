@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission-sdk-23 android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <meta-data android:name="com.kakao.sdk.AppKey" android:value="n47LaTdsZ3lCtP5cV7DB+WrH3Yg="/>
 
@@ -30,13 +34,28 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:label="Main">
+        </activity>
+
+        <activity
             android:name=".UI.Gallery.ImageActivity"
             android:label="Selected Image">
         </activity>
 
         <activity
+            android:name=".UI.Gallery.AddActivity"
+            android:label="Add Image">
+        </activity>
+
+        <activity
             android:name=".UI.Address.EntertainActivity"
             android:label="Selected Image">
+        </activity>
+
+        <activity
+            android:name=".UI.Gallery.RequestActivity"
+            android:label="Request Image">
         </activity>
 
         <activity
@@ -58,10 +77,6 @@
             android:name=".UI.Gallery.RatingActivity"
             android:theme="@android:style/Theme.Dialog"
             android:label="Rate Image">
-        </activity>
-
-        <activity
-            android:name=".MainActivity">
         </activity>
 
         <activity
@@ -93,6 +108,22 @@
             android:label="Find Account">
         </activity>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.myapplication.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+
+            </meta-data>
+        </provider>
+
     </application>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
 </manifest>

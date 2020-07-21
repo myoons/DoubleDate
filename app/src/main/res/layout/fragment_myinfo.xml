@@ -117,7 +117,7 @@
             android:src="@drawable/logo" />
 
         <TextView
-            android:id="@+id/myinfo_bone"
+            android:id="@+id/myinfo_animals"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -164,7 +164,7 @@
             android:src="@drawable/bone" />
 
         <TextView
-            android:id="@+id/myinfo_score"
+            android:id="@+id/myinfo_bone"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:background="@color/brown_2"
@@ -189,7 +189,7 @@
                 android:src="@drawable/score" />
 
             <TextView
-                android:id="@+id/myinfo_animals"
+                android:id="@+id/myinfo_score"
                 android:layout_width="80dp"
                 android:layout_height="60dp"
                 android:background="@color/brown_2"

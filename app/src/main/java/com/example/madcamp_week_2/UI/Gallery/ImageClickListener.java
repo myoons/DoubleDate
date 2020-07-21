@@ -1,13 +1,19 @@
 package com.example.madcamp_week_2.UI.Gallery;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import com.example.madcamp_week_2.Connection.RequestHttpConnection;
+import com.example.madcamp_week_2.UI.Myinfo.Myinfo;
 import com.example.madcamp_week_2.UI.Myinfo.MyinfoImageActivity;
+
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 
@@ -52,5 +58,6 @@ public class ImageClickListener implements OnClickListener {
 
         context.startActivity(intent);
     }
+
 }
 

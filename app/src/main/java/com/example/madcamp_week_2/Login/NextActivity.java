@@ -60,7 +60,6 @@ public class NextActivity extends AppCompatActivity {
                         HttpPost postClient = new HttpPost();
                         try {
                             postClient.post("http://192.249.19.244:1480/sojin/add", data);
-                            Toast.makeText(getApplicationContext(),String_nickname + " 회원님, 반가워요!",Toast.LENGTH_SHORT).show();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

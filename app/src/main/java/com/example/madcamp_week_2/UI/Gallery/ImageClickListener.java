@@ -30,7 +30,6 @@ public class ImageClickListener implements OnClickListener {
         this.tag = tag;
     }
 
-
     public void onClick(View v) {
         //---------------------------------------------------------
         // 확대된 이미지를 보여주는 액티비티를 실행하기 위해 인텐트 객체를 정의합니다.

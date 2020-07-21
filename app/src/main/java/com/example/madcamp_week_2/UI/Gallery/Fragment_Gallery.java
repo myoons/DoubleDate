@@ -98,7 +98,7 @@ public class Fragment_Gallery extends Fragment {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             Bitmap bitmap = bitmapDrawable.getBitmap();
 
-            ImageInfo tempinfo = new ImageInfo(bitmap,Integer.toString(i),Integer.toString(i));
+            ImageInfo tempinfo = new ImageInfo(bitmap,"name","title","score","date");
 
             ImageInfoList.add(tempinfo);
         }
@@ -127,7 +127,8 @@ public class Fragment_Gallery extends Fragment {
                 ImageView fruitImageView = (ImageView) customView.findViewById(R.id.carousel_image);
                 ImageInfo tempinfo = ImageInfoList.get(position);
 
-                ImageClickListener imageViewClickListener = new ImageClickListener(getContext(),tempinfo.getImage(), tempinfo.getTitle(), tempinfo.getName());
+
+                ImageClickListener imageViewClickListener = new ImageClickListener(getContext(),tempinfo.getImage(), tempinfo.getTitle(), tempinfo.getName(),tempinfo.getScore(),tempinfo.getDate());
                 fruitImageView.setOnClickListener(imageViewClickListener);
 
                 fruitImageView.setImageResource(localImages[position]);

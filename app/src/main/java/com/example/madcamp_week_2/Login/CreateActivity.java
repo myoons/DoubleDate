@@ -73,10 +73,6 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                // For Check
-//                check = "1";
-//                result = "1";
-
                 if (check.equals("1") && result.equals("1")) {
 
                     String_ID = ID.getText().toString();

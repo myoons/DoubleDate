@@ -40,8 +40,6 @@ import com.example.madcamp_week_2.UI.Myinfo.Myinfo_image;
 import com.example.madcamp_week_2.UI.Tab.VPAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-import net.daum.android.map.MapView;
-
 public class MainActivity extends AppCompatActivity {
 
     String result, ID, url;
@@ -72,12 +70,11 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tablayout = findViewById(R.id.tab);
         tablayout.setupWithViewPager(vp);
 
-        tablayout.getTabAt(0).setIcon(R.drawable.icon_1);
-        tablayout.getTabAt(1).setIcon(R.drawable.icon_2);
-        tablayout.getTabAt(2).setIcon(R.drawable.icon_3);
-        tablayout.getTabAt(3).setIcon(R.drawable.icon_4);
-        tablayout.getTabAt(4).setIcon(R.drawable.icon_4);
-        tablayout.getTabAt(5).setIcon(R.drawable.icon_4);
+        tablayout.getTabAt(0).setIcon(R.drawable.main);
+        tablayout.getTabAt(1).setIcon(R.drawable.address);
+        tablayout.getTabAt(2).setIcon(R.drawable.gallery);
+        tablayout.getTabAt(3).setIcon(R.drawable.message);
+        tablayout.getTabAt(4).setIcon(R.drawable.myinfo);
 
         logincontents.put("ID",ID);
         MainActivity.NetworkTask networkTask = new MainActivity.NetworkTask(url, logincontents);
@@ -127,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
                     /**
                      * 받은 이미지 String --> Bitmap으로 바꿔주는 코드 필요하다
                      */
-                    Myinfo_image temp_object = new Myinfo_image(imageObject.getString("image"),
-                                                                imageObject.getString("date"),
-                                                                imageObject.getString("title"),
-                                                                imageObject.getString("tag"),
-                                                                imageObject.getString("score"));
-
-                    myinfo_image_arr.add(temp_object);
+//                    Myinfo_image temp_object = new Myinfo_image(imageObject.getString("image"),
+//                                                                imageObject.getString("date"),
+//                                                                imageObject.getString("title"),
+//                                                                imageObject.getString("tag"),
+//                                                                imageObject.getString("score"));
+//
+//                    myinfo_image_arr.add(temp_object);
                 }
 
                 myinfo.setImages(myinfo_image_arr);

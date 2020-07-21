@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <meta-data android:name="com.kakao.sdk.AppKey" android:value="n47LaTdsZ3lCtP5cV7DB+WrH3Yg="/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="2435920dcfc3a79ef8712efebf322f1d"/>
 
 
     <application
@@ -86,7 +86,8 @@
 
         <activity
             android:name=".UI.Address.AddressActivity"
-            android:label="Find Account">
+            android:label="Find Account"
+            >
         </activity>
 
     </application>

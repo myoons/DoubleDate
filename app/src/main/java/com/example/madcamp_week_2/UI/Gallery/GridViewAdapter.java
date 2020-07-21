@@ -53,13 +53,15 @@ public class GridViewAdapter extends BaseAdapter {
             Bitmap bmp = imageIDs.get(position).getImage();
             String title = imageIDs.get(position).getTitle();
             String name = imageIDs.get(position).getName();
+            String score = imageIDs.get(position).getScore();
+            String date = imageIDs.get(position).getDate();
 
             bmp = Bitmap.createScaledBitmap(bmp, 320, 320, false);
 
             imageView = new ImageView(context);
             imageView.setAdjustViewBounds(true);
             imageView.setImageDrawable(new BitmapDrawable(context.getResources(),bmp));
-            ImageClickListener imageViewClickListener = new ImageClickListener(context, bmp, title, name);
+            ImageClickListener imageViewClickListener = new ImageClickListener(context, bmp, title, name, score, date);
             imageView.setOnClickListener(imageViewClickListener);
         }
         return imageView;

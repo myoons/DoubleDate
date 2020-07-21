@@ -1,8 +1,13 @@
 package com.example.madcamp_week_2.UI.Address;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +26,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import static com.kakao.util.maps.helper.Utility.getPackageInfo;
 
 public class Fragment_Address extends Fragment {
 
@@ -84,4 +93,6 @@ public class Fragment_Address extends Fragment {
 
         return view;
     }
+
+
 }

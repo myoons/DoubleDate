@@ -2,12 +2,7 @@ package com.example.madcamp_week_2.UI.Address;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.View;
-
-import com.example.madcamp_week_2.UI.Gallery.ImageActivity;
-
-import java.io.ByteArrayOutputStream;
 
 public class AddressClickListener implements View.OnClickListener {
 
@@ -43,7 +38,7 @@ public class AddressClickListener implements View.OnClickListener {
         intent.putExtra("number",number);
         intent.putExtra("name",name);
 
-        context.startActivity(intent);
+        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
 }

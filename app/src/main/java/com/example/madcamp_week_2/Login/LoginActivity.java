@@ -126,10 +126,9 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             try {
-                System.out.println(s);
 
                 JSONObject jObject = new JSONObject(s);
-                String result = jObject.getString("result");
+                result = jObject.getString("result");
 
                 if (result.equals("0")) {
                     Toast.makeText(getApplicationContext(),"Login Failed : ID or PW may be wrong",Toast.LENGTH_SHORT).show();

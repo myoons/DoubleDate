@@ -19,15 +19,16 @@ public class MyinfoImageClickListener implements OnClickListener {
 
     Bitmap imageID;
     String title;
-    String name;
+    String date, tag, score;
 
-    public MyinfoImageClickListener(Context context, Bitmap imageID, String title, String name) {
+    public MyinfoImageClickListener(Context context, Bitmap imageID, String title, String date, String tag, String score) {
         this.context = context;
         this.imageID = imageID;
         this.title = title;
-        this.name = name;
+        this.date = date;
+        this.tag = tag;
+        this.score = score;
     }
-
 
     public void onClick(View v) {
         //---------------------------------------------------------
@@ -43,10 +44,12 @@ public class MyinfoImageClickListener implements OnClickListener {
         resize.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
 
-        Intent intent = new Intent(context, ImageActivity.class);
+        Intent intent = new Intent(context, MyinfoImageActivity.class);
         intent.putExtra("image", byteArray);
         intent.putExtra("title",title);
-        intent.putExtra("name",name);
+        intent.putExtra("date",date);
+        intent.putExtra("tag",tag);
+        intent.putExtra("score",score);
 
         context.startActivity(intent);
     }

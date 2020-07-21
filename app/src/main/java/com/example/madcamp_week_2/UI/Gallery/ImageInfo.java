@@ -5,23 +5,20 @@ import android.graphics.Bitmap;
 public class ImageInfo {
     private Bitmap image;
     private String name;
-    private String title,score,date;
+    private String title;
+    private String date,tag;
 
-    public ImageInfo(Bitmap image, String name, String title, String score, String date) {
+    public ImageInfo(Bitmap image, String name, String title, String date, String tag) {
         this.image = image;
         this.name = name;
         this.title = title;
-        this.score = score;
         this.date = date;
+        this.tag = tag;
     }
 
-    public String getScore() {
-        return score;
-    }
+    public String getTag() { return tag; }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
+    public void setTag(String tag) { this.tag = tag; }
 
     public String getDate() {
         return date;

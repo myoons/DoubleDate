@@ -55,9 +55,7 @@ public class Fragment_Gallery extends Fragment {
     ArrayList<ImageInfo> ImageInfoList;
     Button btn_add;
     ImageButton btn_reset;
-    String added_title, added_tag, added_Nickname, added_date;
-    byte[] added_image_ba;
-    Bitmap added_image;
+    String check = "0";
     ImageInfo added_imageinfo;
 
     public Fragment_Gallery() {
@@ -87,6 +85,7 @@ public class Fragment_Gallery extends Fragment {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                check = "0";
                 Intent intent = new Intent(getContext(),AddActivity.class);
                 startActivity(intent);
             }
@@ -103,6 +102,15 @@ public class Fragment_Gallery extends Fragment {
                 GridViewAdapter ImageGridAdapter_hey = new GridViewAdapter(getContext(), ImageInfoList);
                 gridViewImages.setAdapter(ImageGridAdapter_hey);
 
+                if (check.equals("0")) {
+
+                    added_imageinfo = ((AddActivity) AddActivity.context).added_info;
+                    ImageInfoList.add(added_imageinfo);
+
+                    GridViewAdapter ImageGridAdapter_added = new GridViewAdapter(getContext(), ImageInfoList);
+                    gridViewImages.setAdapter(ImageGridAdapter_added);
+                    check = "1";
+                }
 
             }
         });

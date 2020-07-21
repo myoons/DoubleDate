@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <meta-data android:name="com.kakao.sdk.AppKey" android:value="2435920dcfc3a79ef8712efebf322f1d"/>
 =======
@@ -56,11 +55,6 @@
         <activity
             android:name=".UI.Address.EntertainActivity"
             android:label="Selected Image">
-        </activity>
-
-        <activity
-            android:name=".UI.Gallery.RequestActivity"
-            android:label="Request Image">
         </activity>
 
         <activity

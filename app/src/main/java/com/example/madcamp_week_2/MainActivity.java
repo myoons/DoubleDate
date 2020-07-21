@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     public static Context context;
     ArrayList<Myinfo_image> myinfo_image_arr = new ArrayList<Myinfo_image>();
     public ArrayList<ImageInfo> gallery_images = new ArrayList<>();
+    Bitmap best_image;
+    double best_score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -239,12 +242,18 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("image json : " + imageObject);
                         System.out.println("image : " + imageObject.getString("image"));
                         ID = imageObject.getString("ID");
-                        date = imageObject.getString("date");
+                        date = imageObject.getString("date").substring(0,10);
                         score = imageObject.getString("pscore");
                         tag = imageObject.getString("tag");
                         title = imageObject.getString("title");
                         bitmap = StringToBitmap(imageObject.getString("image").replace(" ","+"));
                         nickname = imageObject.getString("nickname");
+
+                        best_score = Double.parseDouble(score);
+                        best_image = StringToBitmap(imageObject.getString("image").replace(" ","+"));
+
+                        if (best_score < Double.parseDouble(score))
+                            best_image = StringToBitmap(imageObject.getString("image").replace(" ","+"));
 
                         ImageInfo temp_galleryobject = new ImageInfo(bitmap, nickname, title, date, tag);
                         gallery_images.add(temp_galleryobject);
@@ -256,6 +265,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     myinfo.setImages(myinfo_image_arr);
+                    ImageView main_image = findViewById(R.id.first);
+                    main_image.setImageBitmap(best_image);
                 }
             }catch (Exception e) {e.printStackTrace();}
         }

@@ -45,6 +45,23 @@
         </activity>
 
         <activity
+            android:name=".UI.Message.SendActivity"
+            android:label="Send Message"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+
+        <activity
+            android:name=".UI.Message.RecieveActivity"
+            android:label="Send Message"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+
+        <activity
+            android:name=".UI.Message.MessageActivity"
+            android:label="Message">
+        </activity>
+
+        <activity
             android:name=".UI.Gallery.ImageActivity"
             android:label="Selected Image">
         </activity>

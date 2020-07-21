@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="@drawable/message_color"
+    android:orientation="vertical"
+    android:id="@+id/receive_item">
+
+
+    <TextView
+        android:id="@+id/receive_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/bm"
+        android:textSize="11dp"
+        android:text="Example_Nickname"
+        android:layout_weight="3"
+        android:textColor="@color/brown_green"
+        android:gravity="center"/>
+
+    <View
+        android:background="@color/brown_green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:id="@+id/receive_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="12dp"
+        android:fontFamily="@font/bm"
+        android:text="Example_Message"
+        android:layout_weight="1"
+        android:textColor="@color/brown_green"
+        android:gravity="center"/>
+
+
+
+
+
+</LinearLayout>

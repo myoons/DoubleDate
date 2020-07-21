@@ -3,12 +3,14 @@ package com.example.madcamp_week_2.UI.Message;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,8 +27,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.madcamp_week_2.Connection.HttpGet;
+import com.example.madcamp_week_2.Connection.RequestHttpConnection;
+import com.example.madcamp_week_2.MainActivity;
 import com.example.madcamp_week_2.R;
 import com.example.madcamp_week_2.UI.Address.GpsTracker;
+import com.example.madcamp_week_2.UI.Myinfo.Myinfo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.daum.mf.map.api.MapPOIItem;
@@ -66,30 +71,24 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
     private String SEARCH_URL;
     private String REQUEST_URL;
     String encode_query;
-
+    ContentValues messagecontents = new ContentValues();
+    ContentValues exitcontents = new ContentValues();
+    String my_ID;
     private ProgressDialog progressDialog;
-
+    String result,url;
     private String menu;
+    public static Context context;
+    public JSONArray marker_Array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.message_map);
-
+        context = this;
         Intent receivedIntent = getIntent();
-       // String number = receivedIntent.getStringExtra("number");
-       // String name = receivedIntent.getStringExtra("name");
+        my_ID = ((MainActivity) MainActivity.context).my_ID;
         menu = "number";
-
-//        ImageView imageview = (ImageView) findViewById(R.id.hospital_ImageView);
-//        TextView tv_name = (TextView) findViewById(R.id.hospital_name);
-//        TextView tv_number = (TextView) findViewById(R.id.hospital_number);
-//
-//
-//
-//        tv_name.setText(name);
-//        tv_number.setText(number);
 
         mMapView = (MapView) findViewById(R.id.message_map);
         //mMapView.setOpenAPIKeyAuthenticationResultListener();
@@ -105,9 +104,17 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         }
 
         GpsTracker gpsTracker = new GpsTracker(MapActivity.this);
+
         double latitude = gpsTracker.getLatitude(); // 위도
         double longitude = gpsTracker.getLongitude();
 
+        messagecontents.put("ID",my_ID);
+        messagecontents.put("Y",latitude);
+        messagecontents.put("X",longitude);
+
+        url = "http://192.249.19.244:1480/sojin/GPS";
+        MapActivity.NetworkTask networkTask_login = new MapActivity.NetworkTask(url, messagecontents);
+        networkTask_login.execute();
 
         lat_json = String.valueOf(latitude);
         long_json = String.valueOf(longitude);
@@ -139,21 +146,32 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "kakaomap://route?sp="+lat_json+","+long_json+"&ep="+ Y.toString() + "," + X.toString() + "&by=CAR";
-                System.out.println(url);
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(i);
+
+                Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
+                startActivity(intent);
             }
         });
-
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        GpsTracker gpsTracker_exit = new GpsTracker(MapActivity.this);
+        double latitude_exit = gpsTracker_exit.getLatitude(); // 위도
+        double longitude_exit = gpsTracker_exit.getLongitude();
+
+        exitcontents.put("ID",my_ID);
+        exitcontents.put("Y",latitude_exit);
+        exitcontents.put("X",longitude_exit);
+
+        MapActivity.NetworkTask_Exit networkTask_login = new MapActivity.NetworkTask_Exit(url, exitcontents);
+        networkTask_login.execute();
+
         mMapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);
         mMapView.setShowCurrentLocationMarker(false);
+
     }
 
     @Override
@@ -343,8 +361,6 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
 
 
     private final MapActivity.MyHandler mHandler = new MapActivity.MyHandler(MapActivity.this);
-
-
     private static class MyHandler extends Handler {
         private final WeakReference<MapActivity> weakReference;
 
@@ -373,13 +389,9 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
                             e.printStackTrace();
                         }
 
-                        try {
-                            result_array = result_json.getJSONArray("documents");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        result_array = mainactivity.marker_Array;
 
-                        for (int i = 0; i < 1; i++) {
+                        for (int i = 0; i < result_array.length(); i++) {
                             //마커 표시 코드
                             MapPOIItem marker = new MapPOIItem();
                             marker.setItemName("Default Marker");
@@ -389,8 +401,8 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
                             double y = 0;
                             String place_name = null;
                             try {
-                                x = result_array.getJSONObject(i).getDouble("x");
-                                y = result_array.getJSONObject(i).getDouble("y");
+                                x = result_array.getJSONObject(i).getDouble("X");
+                                y = result_array.getJSONObject(i).getDouble("Y");
                                 X = x;
                                 Y = y;
                                 System.out.println(x + " :result: " +
@@ -401,9 +413,13 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
                             }
 
                             MapPoint MARKER_POINT = MapPoint.mapPointWithGeoCoord(y, x);
-
                             marker.setMapPoint(MARKER_POINT);
-                            marker.setItemName(place_name);
+                            try {
+                                marker.setItemName(result_array.getJSONObject(i).getString("nickname"));
+                                Log.d("marker",result_array.getJSONObject(i).getString("nickname"));
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
 
                             marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
                             marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
@@ -421,7 +437,6 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
             }
         }
     }
-
     public void  getJSON() {
 
         Thread thread = new Thread(new Runnable() {
@@ -489,8 +504,62 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         thread.start();
     }
 
-}
+    private class NetworkTask extends AsyncTask<Void, Void, String> {
 
+        private String url;
+        private ContentValues values;
+
+        public NetworkTask(String url, ContentValues values) {
+            this.url = url;
+            this.values = values;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            RequestHttpConnection requestHttpConnection = new RequestHttpConnection();
+            result = requestHttpConnection.request(url, values);
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            try {
+                JSONObject jObject = new JSONObject(s);
+                marker_Array = jObject.getJSONArray("markers");
+
+            }catch (Exception e) {e.printStackTrace();}
+        }
+    }
+
+    private class NetworkTask_Exit extends AsyncTask<Void, Void, String> {
+
+        private String url;
+        private ContentValues values;
+
+        public NetworkTask_Exit(String url, ContentValues values) {
+            this.url = url;
+            this.values = values;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            RequestHttpConnection requestHttpConnection = new RequestHttpConnection();
+            result = requestHttpConnection.request(url, values);
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+    }
+}
 
 //package com.example.madcamp_week_2.UI.Address;
 

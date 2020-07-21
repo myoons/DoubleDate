@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown_1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/message_list"
+        android:layout_margin="15dp"
+        android:elevation="3dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/bm"
+            android:textColor="@color/brown_green"
+            android:gravity="center"
+            android:text="근처에 있는 사람"/>
+
+        <View
+            android:background="@color/brown_green"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <ListView
+            android:id="@+id/ListView_send"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp"
+        android:background="@drawable/message_list"
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/bm"
+            android:textColor="@color/brown_green"
+            android:gravity="center"
+            android:text="받은 메세지"/>
+
+        <View
+            android:background="@color/brown_green"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <GridView
+            android:id="@+id/GridView_receive"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            android:numColumns="3"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

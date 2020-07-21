@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="5dp"
+    android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="@drawable/message_color"
+    android:orientation="horizontal"
+    android:id="@+id/send_item"
+    android:layout_margin="3dp">
+
+
+    <ImageView
+        android:layout_marginLeft="7dp"
+        android:id="@+id/send_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:src="@drawable/hospital"
+        android:scaleType="fitCenter"
+        android:layout_weight="6"
+        android:layout_marginVertical="4dp"/>
+
+    <TextView
+        android:id="@+id/send_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/bm"
+        android:text="Example_Name"
+        android:layout_weight="1"
+        android:textColor="@color/brown_green"
+        android:gravity="center"/>
+
+
+
+
+</LinearLayout>

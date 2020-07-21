@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/login_main">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:text="Message"
+            android:textSize="25sp"
+            android:textColor="@color/brown_green"
+            android:fontFamily="@font/bm"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <View
+        android:background="@color/brown_green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <EditText
+        android:background="@color/brown_1"
+        android:id="@+id/send_message"
+        android:layout_width="match_parent"
+        android:layout_height="298dp"
+        android:gravity="center"
+        android:hint="Send Message, Find Love"
+        android:textSize="20dp"
+        android:textColor="@color/brown_green"
+        android:fontFamily="@font/bm"/>
+
+    <View
+        android:background="@color/brown_green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:text="Send"
+            android:textSize="20dp"
+            android:textColor="@color/brown_green"
+            android:gravity="center"
+            android:fontFamily="@font/bm"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_height="50dp"
+            android:onClick="mOnClose"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

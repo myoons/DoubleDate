@@ -17,7 +17,7 @@
         android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/hospital"
+        android:src="@drawable/address_image"
         android:padding="11dp"
         android:scaleType="fitCenter"
         android:layout_weight="9"

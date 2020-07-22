@@ -54,18 +54,17 @@
             android:text="Tag"
             android:textSize="20dp"/>
 
-        <Button
-            android:id="@+id/si_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="230dp"
-            android:layout_marginRight="6dp"
-            android:background="@drawable/gallery_button"
-            android:fontFamily="@font/bm"
-            android:gravity="center"
-            android:text="평가하기"
-            android:textColor="@color/brown_green" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/si_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/message_color"
+        android:fontFamily="@font/bm"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="평가하기"
+        android:textColor="@color/brown_green" />
 
 </LinearLayout>

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -42,13 +45,17 @@ public class RatingActivity extends Activity {
 
         final TextView tv = (TextView) findViewById(R.id.textView1);
         RatingBar rb =(RatingBar)findViewById(R.id.ratingBar1);
+        LayerDrawable stars = (LayerDrawable) rb.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(Color.rgb(132,66,5), PorterDuff.Mode.SRC_ATOP);
+        stars.getDrawable(0).setColorFilter(Color.rgb(244,227,193), PorterDuff.Mode.SRC_ATOP);
+        stars.getDrawable(1).setColorFilter(Color.rgb(244,227,193), PorterDuff.Mode.SRC_ATOP);
 
         rb.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) {
                 result_rating = String.valueOf(rating);
-                tv.setText("rating : " + rating);
+                tv.setText("점수 : " + rating);
             }
         });
 

@@ -94,6 +94,9 @@ public class AddressActivity extends AppCompatActivity implements MapView.Curren
         tv_name.setText(name);
         tv_number.setText(number);
 
+        CallClickListener callClickListener = new CallClickListener(getApplicationContext(), number);
+        tv_number.setOnClickListener(callClickListener);
+
         mMapView = (MapView) findViewById(R.id.map_view);
         //mMapView.setOpenAPIKeyAuthenticationResultListener();
         mMapView.setDaumMapApiKey("2435920dcfc3a79ef8712efebf322f1d");

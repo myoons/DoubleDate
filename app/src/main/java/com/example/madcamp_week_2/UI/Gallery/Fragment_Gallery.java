@@ -82,6 +82,8 @@ public class Fragment_Gallery extends Fragment {
 
         initView();
 
+        check = "1";
+
         btn_add = (Button)view.findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,12 +98,6 @@ public class Fragment_Gallery extends Fragment {
         btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                added_imageinfo = ((AddActivity) AddActivity.context).added_info;
-                ImageInfoList.add(added_imageinfo);
-
-                GridViewAdapter ImageGridAdapter_hey = new GridViewAdapter(getContext(), ImageInfoList);
-                gridViewImages.setAdapter(ImageGridAdapter_hey);
 
                 if (check.equals("0")) {
 

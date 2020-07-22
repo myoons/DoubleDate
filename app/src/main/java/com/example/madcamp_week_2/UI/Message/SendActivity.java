@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.example.madcamp_week_2.Connection.RequestHttpConnection;
@@ -47,6 +48,7 @@ public class SendActivity extends Activity {
     public void mOnClose(View v){
         //데이터 전달하기
 
+        Toast.makeText(this,"메세지 전송 완료",Toast.LENGTH_SHORT).show();
         send_message = (EditText) findViewById(R.id.send_message);
         message = send_message.getText().toString();
         sendcontents.put("message",message);

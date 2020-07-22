@@ -50,6 +50,7 @@ import java.util.Date;
 
 public class AddActivity extends AppCompatActivity {
 
+    public String check_myinfo ="0";
     ImageView add_image;
     EditText add_title;
     EditText add_tag;
@@ -114,6 +115,7 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                check_myinfo="1";
                 title = add_title.getText().toString();
                 tag = add_tag.getText().toString();
                 scaled_image = Bitmap.createScaledBitmap(added_image, 320, 320, false);

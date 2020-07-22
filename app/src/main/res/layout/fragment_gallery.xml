@@ -38,22 +38,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        android:background="@color/brown_1"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:elevation="3dp"
-        android:layout_marginLeft="10dp">
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"

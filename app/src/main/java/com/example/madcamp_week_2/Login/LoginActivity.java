@@ -99,6 +99,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btn_find = findViewById(R.id.find_account);
+        btn_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Findpw_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

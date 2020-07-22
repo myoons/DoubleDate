@@ -117,6 +117,7 @@ public class Fragment_Myinfo extends Fragment {
         animals.setText(myinfo.getAnimals());
         bone.setText(myinfo.getBone());
         score.setText(myinfo.getScore());
+
         String ca = ((AddActivity) AddActivity.context).check_myinfo;
 
         if (ca.equals("1")) {

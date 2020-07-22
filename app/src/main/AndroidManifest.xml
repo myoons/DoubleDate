@@ -51,6 +51,17 @@
         </activity>
 
         <activity
+            android:name=".Login.Findpw_Activity"
+            android:label="PW">
+        </activity>
+
+        <activity
+            android:name=".Login.FindPopupActivity"
+            android:label="Find PW"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+
+        <activity
             android:name=".UI.Message.RecieveActivity"
             android:label="Send Message"
             android:theme="@android:style/Theme.Dialog">
